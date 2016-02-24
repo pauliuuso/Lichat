@@ -8,6 +8,8 @@ app.controller("registerController", function($scope, $http)
         email: undefined
     };
     
+    $scope.registerResponse = "";
+    
     $scope.registerUser = function()
     {
         var data = 
@@ -17,15 +19,25 @@ app.controller("registerController", function($scope, $http)
             email: $scope.registerInfo.email
         };
         
-        $http.post("server/register.php", data)
-        .success(function(response)
+        if(data.username !== undefined && data.password !== undefined && data.email !== undefined)
         {
-            console.log(response);
-        });
-        error(function(error)
-        {
-            console.error(error);
-        });
+            $http.post("server/register.php", data)
+            .success(function(response)
+            {
+                if(response === "created")
+                {
+                    //Redirect to user created
+                }
+                else
+                {
+                    $scope.registerResponse = response;
+                }
+            })
+            .error(function(error)
+            {
+                console.error(error);
+            });
+        }
         
     };
 
