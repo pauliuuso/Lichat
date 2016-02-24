@@ -20,7 +20,7 @@ if(isCorrect($user) && isCorrect($userPassword) && isCorrect($userEmail))
     }
     else
     {
-        $userPassword = sha1($password);
+        $userPassword = sha1($userPassword);
         $statement = $connection->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
         $statement->bind_param("sss", $user, $userEmail, $userPassword);
         if($statement->execute())
