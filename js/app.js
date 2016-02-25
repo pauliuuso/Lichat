@@ -8,17 +8,29 @@ app.config(function($routeProvider, $locationProvider)
             {
                 restrict: "E",
                 transclude: true,
-                url: "/",
-                controller: "loginController",
-                templateUrl: "templates/login.html"
+                controller: "homeController",
+                template: ""
+            })
+            .when("/home", 
+            {
+                restrict: "E",
+                transclude: true,
+                controller: "homeController",
+                templateUrl: "templates/home.html"
             })
             .when("/register",
             {
                 restrict: "E",
                 transclude: true,
-                url: "/",
                 controller: "registerController",
                 templateUrl: "templates/register.html"
+            })
+            .when("/login",
+            {
+                restrict: "E",
+                transclude: true,
+                controller: "loginController",
+                templateUrl: "templates/login.html"
             });
     
     //set true to remove # tag from url

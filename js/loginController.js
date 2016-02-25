@@ -1,5 +1,10 @@
-app.controller("loginController", function($scope, $http)
+app.controller("loginController", function($scope, $http, $location)
 {
+    
+    if(localStorage["username"] !== undefined)
+    {
+        $location.path("/home");
+    }
 
     $scope.loginInfo = 
     {
@@ -24,7 +29,8 @@ app.controller("loginController", function($scope, $http)
             {
                 if(response === "login")
                 {
-                    //login user
+                    localStorage.setItem("username", JSON.stringify({user: data.username}));
+                    $location.path("/home");
                 }
                 else
                 {
