@@ -1,18 +1,14 @@
 app.controller("loginController", function($scope, $http, $location)
 {
-    
-    if(localStorage["username"] !== undefined)
-    {
-        $location.path("/home");
-    }
+        
+    $scope.loginResponse = "";
+    $scope.registerUrl = "register";
 
     $scope.loginInfo = 
     {
         username: undefined,
         password: undefined
     };
-    
-    $scope.loginResponse = "";
     
     $scope.loginUser = function()
     {
@@ -27,9 +23,9 @@ app.controller("loginController", function($scope, $http, $location)
             $http.post("server/login.php", data)
             .success(function(response)
             {
-                if(response === "login")
+                if(response.charAt(0) === "S") //If everything went fine in backend, it returns a token, token always Starts with S
                 {
-                    localStorage.setItem("username", JSON.stringify({user: data.username}));
+                    localStorage.setItem("token", JSON.stringify(response));
                     $location.path("/home");
                 }
                 else

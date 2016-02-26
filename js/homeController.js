@@ -1,12 +1,40 @@
-app.controller("homeController", function($scope, $location)
+app.controller("homeController", function($scope, $location, $http, authenticationService)
 {
-    if(localStorage["username"] === undefined)
+    var rawToken = localStorage["token"];
+    var token;
+    
+    if(rawToken)
     {
-        $location.path("/login");
+        token = JSON.parse(rawToken);
     }
     else
     {
-        $location.path("/home");
+        token = "Forbidden";
     }
+    
+    authenticationService.checkToken(token);
+
+    $scope.logout = function()
+    {
+        var data =
+        {
+            token: token        
+        };
+        
+        $http.post("server/logout.php", data)
+        .success(function(response)
+        {
+            console.log(response);
+            localStorage.clear();
+            $location.path("/login");
+        })
+        .error(function(error)
+        {
+            console.error(error);
+        });
+        
+        
+    };
+    
 });
 

@@ -14,7 +14,7 @@ if(isCorrect($user) && isCorrect($userPassword))
     
     if($isCorrect)
     {
-        $response = "login";
+        $response = setToken($user);
     }
     else
     {

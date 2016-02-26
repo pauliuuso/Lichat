@@ -9,7 +9,7 @@ app.config(function($routeProvider, $locationProvider)
                 restrict: "E",
                 transclude: true,
                 controller: "homeController",
-                template: ""
+                template: "templates/home.html"
             })
             .when("/home", 
             {

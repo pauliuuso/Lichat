@@ -1,6 +1,9 @@
 app.controller("registerController", function($scope, $http)
 {
     
+    $scope.loginUrl = "login";
+    $scope.registered = false;
+    $scope.registerShow = true;
     $scope.registerInfo = 
     {
         username: undefined,
@@ -26,6 +29,8 @@ app.controller("registerController", function($scope, $http)
             {
                 if(response === "created")
                 {
+                    $scope.registerShow = false;
+                    $scope.registered = true;
                     //Redirect to user created
                 }
                 else
