@@ -8,13 +8,12 @@ app.service("authenticationService", ["$http", "$location", function($http, $loc
         $http.post("server/checkToken.php", data)
         .success(function(response)
         {
-            if(response === "unauthorized")
+            if (response === "okay")
             {
-                $location.path("/login");
             }
             else
             {
-                $location.path("/home");
+                $location.path("/login");
             }
         })
         .error(function(error)

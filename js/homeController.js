@@ -1,4 +1,4 @@
-app.controller("homeController", function($scope, $location, $http, authenticationService)
+app.controller("homeController", function($scope, $location, $http, authenticationService, userService)
 {
     var rawToken = localStorage["token"];
     var token;
@@ -11,8 +11,9 @@ app.controller("homeController", function($scope, $location, $http, authenticati
     {
         token = "Forbidden";
     }
-    
-    authenticationService.checkToken(token);
+
+    userService.token = token;
+    userService.checkUser();
 
     $scope.logout = function()
     {

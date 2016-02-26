@@ -1,6 +1,5 @@
-app.controller("loginController", function($scope, $http, $location)
+app.controller("loginController", function($scope, $http, $location, userService)
 {
-        
     $scope.loginResponse = "";
     $scope.registerUrl = "register";
 
@@ -26,6 +25,7 @@ app.controller("loginController", function($scope, $http, $location)
                 if(response.charAt(0) === "S") //If everything went fine in backend, it returns a token, token always Starts with S
                 {
                     localStorage.setItem("token", JSON.stringify(response));
+                    userService.username = data.username;
                     $location.path("/home");
                 }
                 else

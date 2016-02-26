@@ -12,12 +12,13 @@
                     <input id="email-input" type="email" placeholder="Email" class="form-control" data-ng-model="registerInfo.email">
                 </div>
                 <div class="form-group">
-                    <label for="password-input">Password</label>
+                    <label for="password-input">Password:</label>
                     <input id="password-input" type="password" placeholder="Password" class="form-control" data-ng-model="registerInfo.password">
                 </div>
                 <button type="submit" class="btn btn-default" ng-click="registerUser()">Register</button><br/>
             </form>
-            <p class="text-warning padding-top-20">{{registerResponse}}</p>
+            <p class="padding-top-10"><a ng-href="#/{{loginUrl}}">Login</a></p>
+            <p class="text-warning">{{registerResponse}}</p>
         </div>
         <div ng-show="registered">
             <h2>Success!</h2>

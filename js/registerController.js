@@ -1,6 +1,5 @@
 app.controller("registerController", function($scope, $http)
 {
-    
     $scope.loginUrl = "login";
     $scope.registered = false;
     $scope.registerShow = true;
