@@ -16,5 +16,5 @@ if(count($result) === 1)
 }
 else 
 {
-    echo "unauthorized";
+    echo $token;
 }

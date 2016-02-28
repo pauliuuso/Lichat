@@ -30,7 +30,6 @@ app.controller("registerController", function($scope, $http)
                 {
                     $scope.registerShow = false;
                     $scope.registered = true;
-                    //Redirect to user created
                 }
                 else
                 {

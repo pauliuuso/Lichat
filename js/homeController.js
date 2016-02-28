@@ -1,20 +1,8 @@
-app.controller("homeController", function($scope, $location, $http, authenticationService, userService)
+app.controller("homeController", function($scope, $location, $http)
 {
-    var rawToken = localStorage["token"];
-    var token;
     
-    if(rawToken)
-    {
-        token = JSON.parse(rawToken);
-    }
-    else
-    {
-        token = "Forbidden";
-    }
-
-    userService.token = token;
-    userService.checkUser();
-
+    var token = JSON.parse(localStorage["token"]); //Reikia padaryt kad token butu bendras ir is visur pasiekiamas
+    
     $scope.logout = function()
     {
         var data =
@@ -33,8 +21,6 @@ app.controller("homeController", function($scope, $location, $http, authenticati
         {
             console.error(error);
         });
-        
-        
     };
     
 });
