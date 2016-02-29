@@ -5,19 +5,19 @@
         <group>
             <file>file:/C:/www/lichat/js/app.js</file>
             <file>file:/C:/www/lichat/css/style.less</file>
-            <file>file:/C:/www/lichat/server/login.php</file>
+            <file>file:/C:/www/lichat/js/userController.js</file>
+            <file>file:/C:/www/lichat/templates/back.html</file>
             <file>file:/C:/www/lichat/server/connection.php</file>
-            <file>file:/C:/www/lichat/js/registerController.js</file>
             <file>file:/C:/www/lichat/js/homeController.js</file>
-            <file>file:/C:/www/lichat/server/register.php</file>
-            <file>file:/C:/www/lichat/services/user-info.js</file>
-            <file>file:/C:/www/lichat/templates/login.html</file>
+            <file>file:/C:/www/lichat/js/backController.js</file>
             <file>file:/C:/www/lichat/server/logout.php</file>
             <file>file:/C:/www/lichat/js/loginController.js</file>
             <file>file:/C:/www/lichat/server/checkToken.php</file>
-            <file>file:/C:/www/lichat/templates/register.html</file>
+            <file>file:/C:/www/lichat/templates/user.html</file>
+            <file>file:/C:/www/lichat/js/welcomeController.js</file>
+            <file>file:/C:/www/lichat/templates/welcome.html</file>
             <file>file:/C:/www/lichat/templates/home.html</file>
-            <file>file:/C:/www/lichat/services/authenticate-token.js</file>
+            <file>file:/C:/www/lichat/server/getUserInfo.php</file>
             <file>file:/C:/www/lichat/index.html</file>
         </group>
     </open-files>

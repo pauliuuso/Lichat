@@ -1,1 +1,11 @@
-{"elements":{},"attributes":{"ui-view":{"context":"div"}}}
+{
+    "elements": {
+        "back": {},
+        "welcome": {}
+    },
+    "attributes": {
+        "ui-view": {
+            "context": "div"
+        }
+    }
+}

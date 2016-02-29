@@ -5,7 +5,8 @@ include "connection.php";
 $data = json_decode(file_get_contents("php://input"));
 
 $token = $data->token;
-$sql = "SELECT name FROM users WHERE token = '$token'";
+$user = $data->user;
+$sql = "SELECT name FROM users WHERE token = '$token' AND name ='$user'";
 $result = $connection->query($sql);
 $result = $result->fetch_assoc();
 
