@@ -9,12 +9,12 @@ $username = $data -> username;
 
 if($username)
 {
-    $sql = "SELECT picture, level FROM users WHERE name = '$username'";
+    $sql = "SELECT name, picture, level, visited FROM users WHERE name = '$username'";
     $statement = mysqli_prepare($connection, $sql);
     mysqli_stmt_execute($statement);
-    mysqli_stmt_bind_result($statement, $picture, $level);
+    mysqli_stmt_bind_result($statement, $name, $picture, $level, $lastVisit);
     mysqli_stmt_fetch($statement);
-    $data = array("picture" => $picture, "level" => $level);
+    $data = array("username" => $name, "picture" => $picture, "level" => $level, "visited" => $lastVisit);
     header('Content-type: application/json');
     $response = json_encode($data);
 }

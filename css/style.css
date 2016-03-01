@@ -49,6 +49,9 @@
   padding: 5px;
   cursor: pointer;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .text-decoration-none a:link {
   text-decoration: none;
 }
@@ -60,5 +63,18 @@
 }
 .text-decoration-none a:active {
   text-decoration: none;
+}
+.choose-picture {
+  margin-top: 10px;
+  text-align: center;
+  height: 100px;
+}
+.choose-picture img {
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+}
+.selected-picture {
+  border: 2px solid #36dfa9;
 }
 /*# sourceMappingURL=style.css.map */

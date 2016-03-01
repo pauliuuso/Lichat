@@ -110,3 +110,23 @@ app.directive("back", function() // Displays back button
         controller: "backController"
     };
 });
+
+app.directive("changepassword", function()
+{
+    return{
+        restrict: "E",
+        transclude: true,
+        templateUrl: "templates/changePassword.html",
+        controller: "userController"
+    };
+});
+
+app.directive("changepicture", function()
+{
+    return{
+        restrict: "E",
+        transclude: true,
+        templateUrl: "templates/changePicture.html",
+        controller: "userController"
+    };
+});

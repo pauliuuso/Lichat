@@ -26,7 +26,7 @@ app.controller("loginController", function($scope, $http, $location, userService
                 {
                     localStorage.setItem("token", JSON.stringify(response));
                     localStorage.setItem("name", data.username);
-                    userService.username = data.username;
+                    userService.setVisitDate(data.username);
                     $location.path("/");
                 }
                 else

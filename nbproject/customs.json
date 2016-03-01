@@ -1,7 +1,9 @@
 {
     "elements": {
+        "changepassword": {},
         "back": {},
-        "welcome": {}
+        "welcome": {},
+        "changePassword": {}
     },
     "attributes": {
         "ui-view": {

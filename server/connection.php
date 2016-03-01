@@ -2,13 +2,13 @@
 
 include "config.php";
 
-$connection = new mysqli($hostname, $username, $password, $database);
+$connection = new mysqli($_hostname, $_username, $_password, $_database);
 //mysqli_report(MYSQLI_REPORT_ALL);
 
 function newConnection()
 {
-    global $hostname, $username, $password, $database;
-    return new mysqli($hostname, $username, $password, $database);
+    global $_hostname, $_username, $_password, $_database;
+    return new mysqli($_hostname, $_username, $_password, $_database);
 }
 
 function checkIfExists($name, $email)
