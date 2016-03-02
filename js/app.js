@@ -117,7 +117,7 @@ app.directive("changepassword", function()
         restrict: "E",
         transclude: true,
         templateUrl: "templates/changePassword.html",
-        controller: "userController"
+        controller: "passwordController"
     };
 });
 
@@ -127,6 +127,6 @@ app.directive("changepicture", function()
         restrict: "E",
         transclude: true,
         templateUrl: "templates/changePicture.html",
-        controller: "userController"
+        controller: "pictureController"
     };
 });
