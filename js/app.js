@@ -30,6 +30,19 @@ app.config(function($routeProvider, $locationProvider)
         controller: "userController",
         templateUrl: "templates/user.html"
     })
+    .when("/allusers",
+    {
+        resolve:
+        {
+            "check": function($location, $http)
+            {
+                checkToken($location, $http);
+            }
+        },
+        transclude: true,
+        controller: "allusersController",
+        templateUrl: "templates/allUsers.html"
+    })
     .when("/register",
     {
         transclude: true,
