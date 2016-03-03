@@ -1,4 +1,26 @@
 <div class="row">
     <welcome></welcome>
-    <h2>Lichat home</h2>
+    <div class="col-xs-12"><h2>Themes:</h2></div>
+    <div class="col-xs-12">
+        <table class="table theme-table">
+            <thead>
+                <tr>
+                    <th class="col-xs-8 col-sm-4">
+                        Theme
+                    </th>
+                    <th class="col-xs-4 col-sm-2">
+                        Comments
+                    </th>
+                    <th class="col-sm-6 visible-sm visible-md visible-lg">
+                        Last activity
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="theme in allThemes">
+                    <td><img src="{{theme[2]}}"/><p>{{theme[1]}}</p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

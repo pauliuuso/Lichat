@@ -96,4 +96,16 @@
   -ms-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
+.theme-table img {
+  float: left;
+}
+.theme-table p {
+  padding-top: 8px;
+}
+.theme-table td {
+  background: #D5F7D7;
+}
+.theme-table th {
+  background: #95db9a;
+}
 /*# sourceMappingURL=style.css.map */
