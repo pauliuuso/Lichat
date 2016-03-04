@@ -4,30 +4,51 @@ include "connection.php";
 
 $data = array();
 
-$sql = "SELECT owner, title, picture, id FROM themes";
-$statement = mysqli_prepare($connection, $sql);
-$statement->execute();
-$statement->bind_result($themeOwner, $title, $picture, $id);
+getAllThemes();
 
-while($statement->fetch())
+function getAllThemes()
 {
-//    $sql2 = "SELECT id FROM messages WHERE theme = $id"; //Get number of messages that this theme holds
-//    $statement2 = mysqli_prepare($connection2, $sql2);
-//    $statement2->execute();
-//    $statement2->store_result();
-//    $messageCount = $statement2->num_rows;
+    global $connection, $data;
     
-    $sql3 = "SELECT owner FROM messages";
-    $statement3 = mysqli_prepare($connection2, $sql3);
-    $statement3->execute();
-    $statement3->bind_result($messageOwner);
+    $sql = "SELECT owner, title, picture, id FROM themes";
+    $statement = mysqli_prepare($connection, $sql);
+    $statement->execute();
+    $statement->bind_result($themeOwner, $title, $picture, $id);
+
+    while($statement->fetch())
+    {
+        $messageCount = getMessageCount($id);
+        $messageOwner = getMessageOwner($id);
+
+        $data[] = array($themeOwner, $title, $picture, $id, $messageCount, $messageOwner[0], $messageOwner[1]);
+    }
     
-    //Reiktu padaryt kad nereiketu 3 connection
+    header('Content-type: application/json');
+    $response = json_encode($data);
+
+    echo $response;
     
-    $data[] = array($themeOwner, $title, $picture, $id);
 }
 
-header('Content-type: application/json');
-$response = json_encode($data);
+function getMessageCount($id)
+{
+    global $connection2;
+    $sql = "SELECT id FROM messages WHERE theme = $id"; //Get number of messages that this theme holds
+    $statement = mysqli_prepare($connection2, $sql);
+    $statement->execute();
+    $statement->store_result();
+    return $statement->num_rows;
+}
 
-echo $response;
+function getMessageOwner($id) // Get owner of the last message in selected theme
+{
+    global $connection2;
+    $sql = "SELECT owner, date FROM messages WHERE theme = $id ORDER BY id DESC LIMIT 1"; //Get number of messages that this theme holds
+    $statement = mysqli_prepare($connection2, $sql);
+    $statement->execute();
+    $statement->bind_result($owner, $date);
+    while($statement->fetch())
+    {
+        return array($owner, $date);
+    }
+}

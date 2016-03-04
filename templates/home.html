@@ -5,11 +5,11 @@
         <table class="table theme-table">
             <thead>
                 <tr>
-                    <th class="col-xs-8 col-sm-4">
+                    <th class="col-xs-9 col-sm-4">
                         Theme
                     </th>
-                    <th class="col-xs-4 col-sm-2">
-                        Comments
+                    <th class="col-xs-3 col-sm-2 text-center">
+                        Messages
                     </th>
                     <th class="col-sm-6 visible-sm visible-md visible-lg">
                         Last activity
@@ -18,7 +18,9 @@
             </thead>
             <tbody>
                 <tr ng-repeat="theme in allThemes">
-                    <td><img src="{{theme[2]}}"/><p>{{theme[1]}}</p></td>
+                    <td class="col-xs-9 col-sm-4 text-decoration-none"><a ng-href="#/theme?id={{theme[3]}}"><img class="visible-sm visible-md visible-lg" src="{{theme[2]}}"/><p>{{theme[1]}}</p></a></td>
+                    <td class="col-xs-3 col-sm-2 text-center"><p>{{theme[4]}}</p></td>
+                    <td class="col-sm-6 visible-sm visible-md visible-lg"><p>Last message: <span>{{theme[5]}}</span> <i>[{{theme[6]}}]</i></p></td>
                 </tr>
             </tbody>
         </table>

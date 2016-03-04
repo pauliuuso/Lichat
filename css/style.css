@@ -102,8 +102,29 @@
 .theme-table p {
   padding-top: 8px;
 }
-.theme-table td {
+.theme-table td p {
+  color: #669;
+}
+.theme-table td span {
+  font-weight: bolder;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.theme-table td i {
+  color: grey;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.theme-table td a p {
+  color: #055283;
+}
+.theme-table tr {
   background: #D5F7D7;
+}
+.theme-table tr:hover {
+  background: #a5e6a9;
 }
 .theme-table th {
   background: #95db9a;
