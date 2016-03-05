@@ -6,7 +6,10 @@
         <p>{{themeData[0][2]}}</p>
     </div>
     <div class="col-xs-12 col-sm-10 message-board">
-        <div ng-repeat="message in allMessages">
+        <div id="loader" class="text-center message-loader margin-bottom-50">
+            <img src="img/loader.gif" alt="loading">
+        </div>
+        <div ng-repeat="message in allMessages" on-repeat-finish>
             <p class="text-decoration-none line-height-0"><a ng-href="#/user?username={{message[0]}}">{{message[0]}}</a> <span class="text-grey">[{{message[2]}}]</span></p>
             <p class="padding-bottom-5">{{message[1]}}</p>
         </div>

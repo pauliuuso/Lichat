@@ -166,3 +166,14 @@ app.directive("addtheme", function()
         controller: "addThemeController"
     };
 });
+
+app.directive("onRepeatFinish", function() //This is used to create even on ng-repeat finish
+{
+    return function($scope)
+    {
+        if($scope.$last)
+        {
+            $scope.$emit("lastElement");
+        }
+    };
+});
