@@ -17,6 +17,9 @@
 .lichat-content {
   position: relative;
 }
+.padding-bottom-5 {
+  padding-bottom: 5px;
+}
 .padding-top-5 {
   padding-top: 5px;
 }
@@ -77,6 +80,14 @@
   height: 90px;
   cursor: pointer;
 }
+.choose-theme-picture {
+  margin-top: 10px;
+  text-align: center;
+  height: 35px;
+}
+.choose-theme-picture img {
+  cursor: pointer;
+}
 .user-picture {
   margin-top: 10px;
   text-align: center;
@@ -105,17 +116,8 @@
 .theme-table td p {
   color: #669;
 }
-.theme-table td span {
-  font-weight: bolder;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 .theme-table td i {
   color: grey;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .theme-table td a p {
   color: #055283;
@@ -128,5 +130,20 @@
 }
 .theme-table th {
   background: #95db9a;
+}
+.resize-none {
+  resize: none;
+}
+.text-grey {
+  color: grey;
+}
+.line-height-0 {
+  line-height: 0px;
+}
+.message-board {
+  padding-top: 10px;
+  vertical-align: text-bottom;
+  height: 400px;
+  overflow-y: scroll;
 }
 /*# sourceMappingURL=style.css.map */

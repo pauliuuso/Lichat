@@ -1,6 +1,7 @@
 {
     "elements": {
         "changepassword": {},
+        "addtheme": {},
         "back": {},
         "welcome": {},
         "changePassword": {}

@@ -17,6 +17,19 @@ app.config(function($routeProvider, $locationProvider)
         controller: "homeController",
         templateUrl: "templates/home.html"
     })
+    .when("/theme", 
+    {
+        resolve:
+        {
+            "check": function($location, $http)
+            {
+                checkToken($location, $http);
+            }
+        },
+        transclude: true,
+        controller: "themeController",
+        templateUrl: "templates/theme.html"
+    })
     .when("/user",
     {
         resolve:
@@ -141,5 +154,15 @@ app.directive("changepicture", function()
         transclude: true,
         templateUrl: "templates/changePicture.html",
         controller: "pictureController"
+    };
+});
+
+app.directive("addtheme", function()
+{
+    return{
+        restrict: "E",
+        transclude: true,
+        templateUrl: "templates/addTheme.html",
+        controller: "addThemeController"
     };
 });

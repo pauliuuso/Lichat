@@ -9,7 +9,6 @@ app.controller("homeController", function($scope, $http)
         .success(function(response)
         {
             $scope.allThemes = JSON.parse(JSON.stringify(response));
-            console.log($scope.allThemes);
         });
     };
     

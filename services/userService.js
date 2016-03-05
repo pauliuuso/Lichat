@@ -21,4 +21,10 @@ app.service("userService", ["$http", "$location", function($http, $location)
         });
     };
     
+    $this.calculateChars = function(maxChars, currentLength)
+    {
+        var count = maxChars - parseInt(currentLength.length);
+        return count;
+    };
+    
 }]);

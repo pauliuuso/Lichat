@@ -10,7 +10,7 @@ function getAllThemes()
 {
     global $connection, $data;
     
-    $sql = "SELECT owner, title, picture, id FROM themes";
+    $sql = "SELECT owner, title, picture, id FROM themes ORDER BY date DESC";
     $statement = mysqli_prepare($connection, $sql);
     $statement->execute();
     $statement->bind_result($themeOwner, $title, $picture, $id);
