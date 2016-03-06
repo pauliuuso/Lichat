@@ -1,5 +1,5 @@
 <?php
-
+header('Content-type: application/json');
 include "connection.php";
 
 $response = array();
@@ -10,7 +10,6 @@ foreach(glob("../pic/*.*") as $filename)
     array_push($response, $filename);
 }
 
-header('Content-type: application/json');
 echo json_encode($response);
 
 ?>

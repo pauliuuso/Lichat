@@ -1,5 +1,5 @@
 <?php
-
+header('Content-type: application/json');
 include "connection.php";
 
 $data = json_decode(file_get_contents("php://input"));
@@ -15,15 +15,12 @@ if($username)
     mysqli_stmt_bind_result($statement, $name, $picture, $level, $lastVisit);
     mysqli_stmt_fetch($statement);
     $data = array("username" => $name, "picture" => $picture, "level" => $level, "visited" => $lastVisit);
-    header('Content-type: application/json');
+
     $response = json_encode($data);
 }
 else
 {
     $response = false;
 }
-
-    
+  
 echo $response;
-
-?>

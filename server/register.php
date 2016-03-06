@@ -52,5 +52,3 @@ function isCorrect($var)
 }
     
 echo $response;
-
-?>

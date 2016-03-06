@@ -13,6 +13,7 @@ app.controller("themeController", function($scope, $http, $location, userService
    $scope.messageLoadStep = 10;
    $scope.messagesToLoad = 10; //First load step is bigger to fill full message board screen
    $scope.messageLoadInterval = 1000;
+   $scope.checkForMessagesInt = 1240;
    $scope.loaderVisible = true;
    
    var messageLoadInterval = setInterval(function()
@@ -23,7 +24,7 @@ app.controller("themeController", function($scope, $http, $location, userService
    var checkForNewMessages = setInterval(function()
    {
        $scope.getNewMessages();
-   }, $scope.messageLoadInterval);
+   }, $scope.checkForMessagesInt);
    
     $scope.messageQuery = function()
     {
@@ -109,22 +110,23 @@ app.controller("themeController", function($scope, $http, $location, userService
             $scope.messagesToLoad += $scope.messageLoadStep;
             if(type === "old")
             {
+               var newMessages = [];
+               newMessages = JSON.parse(JSON.stringify(response));
                if($scope.allMessages.length === 0)
                {
-                   $scope.allMessages = JSON.parse(JSON.stringify(response));
+                   $scope.allMessages = newMessages;
                }
                else
                {
-                   $scope.allMessages = $.merge(JSON.parse(JSON.stringify(response)), $scope.allMessages);
+                   $scope.allMessages = $.merge(newMessages, $scope.allMessages);
                    $scope.goToBottom(100);
                }
             }
             else if(type === "new")
             {
-                $scope.allMessages = $.merge($scope.allMessages, JSON.parse(JSON.stringify(response)));
+                $scope.allMessages = $.merge($scope.allMessages, newMessages);
             }
-            console.log(startFrom + " " + count);
-            console.log($scope.allMessages); //kartais erroras ir isejus is sito page interval nesustoja
+            console.log(JSON.parse(JSON.stringify(response))); //kartais erroras ir isejus is sito page interval nesustoja
         })
         .error(function(error)
         {

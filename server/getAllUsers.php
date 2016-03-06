@@ -1,5 +1,5 @@
 <?php
-
+header('Content-type: application/json');
 include "connection.php";
 
 $data = array();
@@ -14,7 +14,6 @@ while($statement->fetch())
     $data[] = array($name, $picture);
 }
 
-header('Content-type: application/json');
 $response = json_encode($data);
 
 echo $response;

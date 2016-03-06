@@ -22,5 +22,4 @@ else
     echo false;
 }
 
-    
 echo $response;

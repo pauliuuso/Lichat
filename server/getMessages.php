@@ -27,6 +27,7 @@ function getMessages()
         $data[] = array($messageOwner, $message, $date);
     }
     
+
     $response = json_encode($data);
 
     echo $response;
