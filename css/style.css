@@ -29,6 +29,9 @@
 .padding-top-20 {
   padding-top: 20px;
 }
+.margin-top-10 {
+  margin-top: 10px;
+}
 .margin-top-20 {
   margin-top: 20px;
 }
@@ -148,5 +151,43 @@
 }
 .message-loader img {
   width: 60px;
+}
+.fade-in {
+  -webkit-animation: 0.8s fade_animation;
+  -moz-animation: 0.8s fade_animation;
+  -o-animation: 0.8s fade_animation;
+  animation: 0.8s fade_animation;
+}
+@keyframes fade_animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade_animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fade_animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fade_animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=style.css.map */

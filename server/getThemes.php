@@ -1,5 +1,5 @@
 <?php
-
+header('Content-type: application/json');
 include "connection.php";
 
 $data = array();
@@ -23,7 +23,6 @@ function getAllThemes()
         $data[] = array($themeOwner, $title, $picture, $id, $messageCount, $messageOwner[0], $messageOwner[1]);
     }
     
-    header('Content-type: application/json');
     $response = json_encode($data);
 
     echo $response;

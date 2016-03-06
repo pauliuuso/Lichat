@@ -1,5 +1,5 @@
 <?php
-
+header('Content-type: application/json');
 include "connection.php";
 
 $id = json_decode(file_get_contents("php://input"));
@@ -20,8 +20,6 @@ function getTheme()
 
     $data[] = array($themeOwner, $title, $description);
  
-
-    header('Content-type: application/json');
     $response = json_encode($data);
 
     echo $response;

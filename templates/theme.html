@@ -6,10 +6,10 @@
         <p>{{themeData[0][2]}}</p>
     </div>
     <div class="col-xs-12 col-sm-10 message-board">
-        <div id="loader" class="text-center message-loader margin-bottom-50">
+        <div id="loader" class="text-center message-loader margin-bottom-50 margin-top-20" ng-show="loaderVisible">
             <img src="img/loader.gif" alt="loading">
         </div>
-        <div ng-repeat="message in allMessages" on-repeat-finish>
+        <div ng-repeat="message in allMessages" class="fade-in" on-repeat-finish>
             <p class="text-decoration-none line-height-0"><a ng-href="#/user?username={{message[0]}}">{{message[0]}}</a> <span class="text-grey">[{{message[2]}}]</span></p>
             <p class="padding-bottom-5">{{message[1]}}</p>
         </div>
@@ -23,7 +23,7 @@
                 <label for="message-box">Enter message:</label>
                 <textarea id="message-box" type="text" placeholder="Enter message" class="form-control resize-none" ng-model="messageText" ng-change="updateMessageChars()" maxlength="5000"></textarea>
                 <p class="padding-top-10 text-info">Chars left: <span class="text-warning">{{messageCharsLeft}}</span></p>
-                <button type="submit" class="btn btn-default margin-top-20" ng-click="sendMessage()">Submit</button>
+                <button type="submit" class="btn btn-default" ng-click="sendMessage()">Submit</button>
             </div>
         </form>
         <p class="text-warning">{{messageWarning}}</p>

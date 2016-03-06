@@ -4,7 +4,6 @@ include "config.php";
 
 $connection = new mysqli($_hostname, $_username, $_password, $_database);
 $connection2 = new mysqli($_hostname, $_username, $_password, $_database);
-//mysqli_report(MYSQLI_REPORT_ALL);
 
 function newConnection()
 {
