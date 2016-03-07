@@ -108,10 +108,10 @@ app.controller("themeController", function($scope, $http, $location, userService
         .success(function(response)
         {
             $scope.messagesToLoad += $scope.messageLoadStep;
+            var newMessages = [];
+            newMessages = JSON.parse(JSON.stringify(response));
             if(type === "old")
             {
-               var newMessages = [];
-               newMessages = JSON.parse(JSON.stringify(response));
                if($scope.allMessages.length === 0)
                {
                    $scope.allMessages = newMessages;
@@ -126,7 +126,6 @@ app.controller("themeController", function($scope, $http, $location, userService
             {
                 $scope.allMessages = $.merge($scope.allMessages, newMessages);
             }
-            console.log(JSON.parse(JSON.stringify(response))); //kartais erroras ir isejus is sito page interval nesustoja
         })
         .error(function(error)
         {
@@ -158,7 +157,7 @@ app.controller("themeController", function($scope, $http, $location, userService
    
     $scope.sendMessage = function()
     {
-        if($scope.messageText.length < 5000 && $scope.messageText !== "")
+        if($scope.messageText.length <= 5000 && $scope.messageText !== "")
         {
             $scope.messageWarning = "";
 

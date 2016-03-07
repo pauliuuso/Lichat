@@ -1,4 +1,4 @@
-app.controller("homeController", function($scope, $http)
+app.controller("homeController", function($scope, $http, userService)
 {
     
     $scope.allThemes;

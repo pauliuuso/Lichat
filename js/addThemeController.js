@@ -1,9 +1,9 @@
 app.controller("addThemeController", function($scope, $http, userService)
 {
     $scope.showAddTheme = false;
-    $scope.themeTitle;
-    $scope.themeDescription;
-    $scope.themeWaring;
+    $scope.themeTitle = "";
+    $scope.themeDescription = "";
+    $scope.themeWaring = "";
     $scope.pictureUrls = ["img/default_theme.png", "img/l_theme.png", "img/music_theme.png", "img/skull_theme.png", "img/star_theme.png", "img/paper_theme.png"];
     $scope.imageUrl = "img/default_theme.png";
     $scope.titleMaxChars = 150;
@@ -51,7 +51,7 @@ app.controller("addThemeController", function($scope, $http, userService)
     
     $scope.addTheme = function()
     {
-        if($scope.themeTitle.length < $scope.titleMaxChars && $scope.themeDescription.length < $scope.descriptionMaxChars)
+        if($scope.themeTitle.length <= $scope.titleMaxChars && $scope.themeDescription.length <= $scope.descriptionMaxChars && $scope.themeTitle !== "")
         {
             $scope.themeWaring = "";
             var data =
@@ -87,7 +87,7 @@ app.controller("addThemeController", function($scope, $http, userService)
         }
         else
         {
-            $scope.themeWaring = "Either theme title or description is too long!";
+            $scope.themeWarning = "Either theme title or description is too long or no theme title!";
         }
     };
     

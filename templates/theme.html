@@ -2,8 +2,8 @@
     <welcome></welcome>
     <back></back>
     <div class="col-xs-12">
-        <h4>{{themeData[0][1]}}</h4>
-        <p>{{themeData[0][2]}}</p>
+        <h4 class="word-break">{{themeData[0][1]}}</h4>
+        <p class="word-break">{{themeData[0][2]}}</p>
     </div>
     <div class="col-xs-12 col-sm-10 message-board">
         <div id="loader" class="text-center message-loader margin-bottom-50 margin-top-20" ng-show="loaderVisible">
@@ -11,7 +11,7 @@
         </div>
         <div ng-repeat="message in allMessages" class="fade-in" on-repeat-finish>
             <p class="text-decoration-none line-height-0"><a ng-href="#/user?username={{message[0]}}">{{message[0]}}</a> <span class="text-grey">[{{message[2]}}]</span></p>
-            <p class="padding-bottom-5">{{message[1]}}</p>
+            <p class="padding-bottom-5 word-break">{{message[1]}}</p>
         </div>
     </div>
     <div class="col-sm-2 visible-sm visible-md visible-lg">

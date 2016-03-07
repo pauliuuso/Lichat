@@ -24,6 +24,10 @@ function getMessages()
 
     while($statement->fetch())
     {
+        if($messageOwner === null)
+        {
+            $messageOwner = "deleted_user";
+        }
         $data[] = array($messageOwner, $message, $date);
     }
     

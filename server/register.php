@@ -9,7 +9,9 @@ $user = $data -> username;
 $userPassword = $data -> password;
 $userEmail = $data -> email;
 
-if(isCorrect($user) && isCorrect($userPassword) && isCorrect($userEmail))
+$isGood = checkForCharacters($user);
+
+if(isCorrect($user) && isCorrect($userPassword) && isCorrect($userEmail) && $isGood)
 {
     $response = "All fields are correct!";
     $isTaken = checkIfExists($user, $userEmail);
@@ -48,6 +50,22 @@ function isCorrect($var)
     else
     {
         return false;
+    }
+}
+
+function checkForCharacters($user)
+{
+    if (preg_match("/[^A-Za-z0-9\_]/", $user))
+    {
+        return false;
+    }
+    else if(strlen($user) > 15)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
     }
 }
     

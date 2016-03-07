@@ -4,25 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/www/lichat/js/app.js</file>
-            <file>file:/C:/www/lichat/js/addThemeController.js</file>
             <file>file:/C:/www/lichat/css/style.less</file>
-            <file>file:/C:/www/lichat/server/login.php</file>
-            <file>file:/C:/www/lichat/server/connection.php</file>
-            <file>file:/C:/www/lichat/js/themeController.js</file>
             <file>file:/C:/www/lichat/js/homeController.js</file>
-            <file>file:/C:/www/lichat/templates/login.html</file>
+            <file>file:/C:/www/lichat/templates/home.html</file>
             <file>file:/C:/www/lichat/server/logout.php</file>
             <file>file:/C:/www/lichat/services/userService.js</file>
-            <file>file:/C:/www/lichat/server/getMessageCount.php</file>
-            <file>file:/C:/www/lichat/templates/theme.html</file>
-            <file>file:/C:/www/lichat/server/getThemes.php</file>
-            <file>file:/C:/www/lichat/server/sendMessage.php</file>
-            <file>file:/C:/www/lichat/server/getTheme.php</file>
-            <file>file:/C:/www/lichat/server/addTheme.php</file>
-            <file>file:/C:/www/lichat/templates/home.html</file>
-            <file>file:/C:/www/lichat/templates/addTheme.html</file>
-            <file>file:/C:/www/lichat/server/getMessages.php</file>
-            <file>file:/C:/www/lichat/server/setPicture.php</file>
         </group>
     </open-files>
 </project-private>

@@ -3,6 +3,8 @@ app.service("userService", ["$http", "$location", function($http, $location)
     $this = this;
     $this.pictureUrl = "";
     $this.currentUser = localStorage["name"];
+    $this.userLevel = 2;
+
     
     $this.setVisitDate = function(user)
     {
