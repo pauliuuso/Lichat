@@ -7,25 +7,36 @@ $response = "";
 
 $username = $data -> username;
 $password = $data -> newPassword;
+$token = $data -> token;
 
-if($username && strlen($password) > 3)
+if(checkToken($token, $username))
 {
-    $password = sha1($password);
-    $sql = "UPDATE users SET password = '$password' WHERE name = '$username'";
-    $statement = mysqli_prepare($connection, $sql);
-    if($statement->execute())
+    changePassword();
+}
+
+function changePassword()
+{
+    global $username, $password, $connection;
+    
+    if($username && strlen($password) > 3)
     {
-        $response = "Your password is updated";
+        $password = sha1($password);
+        $sql = "UPDATE users SET password = '$password' WHERE name = '$username'";
+        $statement = mysqli_prepare($connection, $sql);
+        if($statement->execute())
+        {
+            $response = "Your password is updated";
+        }
+        else
+        {
+            $response = "Failed to update password!";
+        }
+
     }
     else
     {
-        $response = "Failed to update password!";
+        $response = "This password is not allowed!";
     }
 
+    echo $response;
 }
-else
-{
-    $response = "This password is not allowed!";
-}
-    
-echo $response;

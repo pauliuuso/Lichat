@@ -51,7 +51,6 @@ function checkIfCorrect($name, $password)
     }
 }
 
-
 function setToken($name)
 {
     global $connection;
@@ -69,3 +68,20 @@ function setToken($name)
     }
 }
 
+function checkToken($token, $user)
+{
+    global $connection;
+    
+    $sql = "SELECT name FROM users WHERE token = '$token' AND name = '$user'";
+    $statement = mysqli_prepare($connection, $sql);
+    $statement->execute();
+    $statement->store_result();
+    if($statement->num_rows == 1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

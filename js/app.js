@@ -81,7 +81,7 @@ app.config(function($routeProvider, $locationProvider)
 
         if(rawToken)
         {
-            token = JSON.parse(localStorage["token"]);
+            token = rawToken;
             checkTokenServer($location, $http);
         }
         else
@@ -164,6 +164,16 @@ app.directive("addtheme", function()
         transclude: true,
         templateUrl: "templates/addTheme.html",
         controller: "addThemeController"
+    };
+});
+
+app.directive("edittheme", function()
+{
+    return{
+        restrict: "E",
+        transclude: true,
+        templateUrl: "templates/editTheme.html",
+        controller: "editThemeController"
     };
 });
 

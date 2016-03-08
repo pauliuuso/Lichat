@@ -12,13 +12,13 @@ function getTheme()
 {
     global $connection, $data, $id;
     
-    $sql = "SELECT owner, title, description FROM themes WHERE id = $id";
+    $sql = "SELECT owner, title, description, picture FROM themes WHERE id = $id";
     $statement = mysqli_prepare($connection, $sql);
     $statement->execute();
-    $statement->bind_result($themeOwner, $title, $description);
+    $statement->bind_result($themeOwner, $title, $description, $picture);
     $statement->fetch();
 
-    $data[] = array($themeOwner, $title, $description);
+    $data = array($themeOwner, $title, $description, $picture);
  
     $response = json_encode($data);
 

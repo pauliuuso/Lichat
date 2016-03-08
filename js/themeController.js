@@ -165,7 +165,8 @@ app.controller("themeController", function($scope, $http, $location, userService
             {
                   username: userService.currentUser,
                   message: $scope.messageText,
-                  theme: $scope.id
+                  theme: $scope.id,
+                  token: userService.token
             };
             
             $http.post("server/sendMessage.php", data)

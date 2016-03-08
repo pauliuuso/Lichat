@@ -43,7 +43,7 @@ app.controller("pictureController", function($scope, $http, userService) //Contr
     
     $scope.setImage = function(url)
     {
-        data = {pictureUrl: url, username: userService.currentUser};
+        var data = {pictureUrl: url, username: userService.currentUser, token: userService.token};
         $http.post("server/setPicture.php", data)
         .success(function(response)
         {

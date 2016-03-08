@@ -1,6 +1,5 @@
-app.controller("addThemeController", function($scope, $http, userService)
+app.controller("editThemeController", function($scope, $http, userService)
 {
-    $scope.showAddTheme = false;
     $scope.themeTitle = "";
     $scope.themeDescription = "";
     $scope.themeWaring = "";
@@ -9,17 +8,45 @@ app.controller("addThemeController", function($scope, $http, userService)
     $scope.titleMaxChars = 150;
     $scope.descriptionMaxChars = 2000;
     $scope.descriptionCharsLeft = 2000;
-    
-    $scope.toogleAddTheme = function()
+    $scope.showThis = false;
+    $scope.themeData = [];
+    $scope.themeId;
+
+    $scope.editTheme = function(id)
     {
-        if(!$scope.showAddTheme)
+        $scope.getTheme(id);
+        $scope.themeId = id;
+    };
+    
+    $scope.getTheme = function(id)
+    {
+        $http.post("server/getTheme.php", id)
+        .success(function(response)
         {
-            $scope.showAddTheme = true;
+            $scope.themeData = JSON.parse(JSON.stringify(response));
+            $scope.themeTitle = $scope.themeData[1];
+            $scope.themeDescription = $scope.themeData[2];
+            $scope.imageUrl = $scope.themeData[3];
             $scope.markSelectedPicture();
+            $scope.showThis = true;
+            setTimeout(function(){$scope.goToBottom();}, 200);
+        })
+        .error(function(error)
+        {
+            console.error(error);
+        });
+    };
+    
+    $scope.goToBottom = function(amount)
+    {
+        var board = $("html, body");
+        if(!amount)
+        {
+            board.scrollTop(board.prop("scrollHeight"));
         }
         else
         {
-            $scope.showAddTheme = false;
+            board.scrollTop(amount);
         }
     };
     
@@ -49,7 +76,7 @@ app.controller("addThemeController", function($scope, $http, userService)
         $scope.descriptionCharsLeft = userService.calculateChars($scope.descriptionMaxChars, $scope.themeDescription);
     };
     
-    $scope.addTheme = function()
+    $scope.updateTheme = function()
     {
         if($scope.themeTitle.length <= $scope.titleMaxChars && $scope.themeDescription.length <= $scope.descriptionMaxChars && $scope.themeTitle !== "")
         {
@@ -60,10 +87,11 @@ app.controller("addThemeController", function($scope, $http, userService)
                  description: $scope.themeDescription,
                  picture: $scope.imageUrl,
                  owner: userService.currentUser,
+                 id: $scope.themeId,
                  token: userService.token
             };
             
-            $http.post("server/addTheme.php", data)
+            $http.post("server/updateTheme.php", data)
             .success(function(response)
             {
                 if(response)
@@ -72,12 +100,12 @@ app.controller("addThemeController", function($scope, $http, userService)
                     $scope.themeTitle = "";
                     $scope.themeDescription = "";
                     $scope.imageUrl = "img/default_theme.png";
-                    $scope.showAddTheme = false;
+                    $scope.showThis = false;
                     $scope.getThemes();
                 }
                 else
                 {
-                    $scope.themeWarning = "Couldn't insert this theme";
+                    $scope.themeWarning = "Couldn't update this theme";
                 }
             })
             .error(function(error)

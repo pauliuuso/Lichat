@@ -9,18 +9,20 @@ $title = $data -> title;
 $description = $data -> description;
 $picture = $data -> picture;
 $owner = $data -> owner;
+$id = $data -> id;
 $token = $data -> token;
-
 
 if(checkToken($token, $owner))
 {
-    addTheme();
+    updateTheme();
 }
 
-function addTheme()
+
+function updateTheme()
 {
-    global $connection, $owner, $title, $description, $picture;
-    $sql = "INSERT INTO themes (owner, title, description, picture, date) VALUES ('$owner', '$title', '$description', '$picture', NOW())";
+    global $connection, $title, $description, $picture, $owner, $id, $response;
+    
+    $sql = "UPDATE themes SET owner = '$owner', title = '$title', description = '$description', picture = '$picture' WHERE id = $id";
     $statement = mysqli_prepare($connection, $sql);
     if($statement->execute())
     {
@@ -30,6 +32,6 @@ function addTheme()
     {
         echo false;
     }
-}
 
-echo $response;
+    echo $response;
+}

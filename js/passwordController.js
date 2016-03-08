@@ -9,7 +9,7 @@ app.controller("passwordController", function($scope, $http, userService)
     {
         if($scope.newPassword === $scope.newPassword2)
         {
-            var data2 = {username: $scope.currentUser, newPassword: $scope.newPassword};
+            var data2 = {username: $scope.currentUser, newPassword: $scope.newPassword, token: userService.token};
 
             $http.post("server/changePassword.php", data2)
             .success(function(response)

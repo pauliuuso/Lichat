@@ -8,8 +8,13 @@ $response = "";
 $username = $data->username;
 $message = $data->message;
 $themeId = $data->theme;
+$token = $data->token;
 
-sendMessage();
+if(checkToken($token, $username))
+{
+    sendMessage();
+}
+
 
 function sendMessage()
 {

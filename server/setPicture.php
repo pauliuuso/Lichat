@@ -7,24 +7,35 @@ $response = "";
 
 $url = $data -> pictureUrl;
 $username = $data -> username;
+$token = $data -> token;
 
-if($username)
+if(checkToken($token, $username))
 {
-    $sql = "UPDATE users SET picture = '$url' WHERE name = '$username'";
-    $statement = mysqli_prepare($connection, $sql);
-    if($statement->execute())
+    updatePicture();
+}
+
+function updatePicture()
+{
+    global $connection, $url, $username;
+    
+    if($username)
     {
-        echo true;
+        $sql = "UPDATE users SET picture = '$url' WHERE name = '$username'";
+        $statement = mysqli_prepare($connection, $sql);
+        if($statement->execute())
+        {
+            echo true;
+        }
+        else
+        {
+            echo false;
+        }
+
     }
     else
     {
-        echo false;
+        $response = false;
     }
 
+    echo $response;
 }
-else
-{
-    $response = false;
-}
-    
-echo $response;

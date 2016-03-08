@@ -1,13 +1,14 @@
 app.controller("welcomeController", function($scope, $location, $http)
 {
     $scope.welcomeUsername = localStorage["name"];
-    var token = JSON.parse(localStorage["token"]); //Reikia padaryt kad token butu bendras ir is visur pasiekiamas
+    var token = localStorage["token"];
     
     $scope.logout = function()
     {
         var data =
         {
-            token: token        
+            token: token,
+            username: $scope.welcomeUsername
         };
         
         $http.post("server/logout.php", data)
