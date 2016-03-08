@@ -56,6 +56,18 @@ app.controller("themeController", function($scope, $http, $location, userService
        };
     };
     
+    $scope.showEditMessage = function(owner)
+    {
+        if(owner === userService.currentUser || userService.userLevel >= 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    };
+    
     $scope.getNewMessages = function()
     {
         var messageBoard = $(".message-board");
@@ -201,6 +213,16 @@ app.controller("themeController", function($scope, $http, $location, userService
     $scope.updateMessageChars = function()
     {
         $scope.messageCharsLeft = userService.calculateChars($scope.messageMaxChars, $scope.messageText);
+    };
+    
+    $scope.editMessage = function(id)
+    {
+        alert(id);
+    };
+    
+    $scope.deleteMessage = function(id)
+    {
+        alert(id);
     };
 
     $scope.$on("lastElement", function()

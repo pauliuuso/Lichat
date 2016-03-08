@@ -23,6 +23,29 @@ app.controller("homeController", function($scope, $http, userService)
         }
     };
     
+    $scope.deleteTheme = function(id)
+    {
+        var choose = confirm("Are you sure?");
+        if(choose === true)
+        {
+            $scope.removeTheme(id);
+        }
+    };
+    
+    $scope.removeTheme = function(id)
+    {
+        var data = {username: userService.currentUser, level: userService.userLevel, token: userService.token, id: id};
+        $http.post("server/deleteTheme.php", data)
+        .success(function(response)
+        {
+            $scope.getThemes();
+        })
+        .error(function(error)
+        {
+            console.error(error);
+        });
+    };
+    
     $scope.getThemes();
     
 });

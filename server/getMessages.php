@@ -16,11 +16,11 @@ function getMessages()
 {
     global $connection, $data, $id, $count, $startFrom;
 
-    $sql = "SELECT owner, message, date FROM messages WHERE theme = $id ORDER BY date ASC LIMIT $count OFFSET $startFrom";
+    $sql = "SELECT id, owner, message, date FROM messages WHERE theme = $id ORDER BY date ASC LIMIT $count OFFSET $startFrom";
 
     $statement = mysqli_prepare($connection, $sql);
     $statement->execute();
-    $statement->bind_result($messageOwner, $message, $date);
+    $statement->bind_result($messageId, $messageOwner, $message, $date);
 
     while($statement->fetch())
     {
@@ -28,7 +28,7 @@ function getMessages()
         {
             $messageOwner = "deleted_user";
         }
-        $data[] = array($messageOwner, $message, $date);
+        $data[] = array($messageId, $messageOwner, $message, $date);
     }
     
 

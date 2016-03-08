@@ -2,17 +2,18 @@
     <h2>Edit theme:</h2>
     <form role="form">
         <label for="theme-title">Theme title:</label>
-        <input type="text" id="theme-title" placeholder="Enter theme title" class="form-control" ng-model="themeTitle" maxlength="150"/>
+        <input type="text" id="theme-title" placeholder="Enter theme title" class="form-control" ng-model="editTitle" maxlength="150"/>
         <label class="padding-top-10" for="theme-description">Theme description:</label>
-        <textarea id="theme-description" placeholder="Enter theme description" class="form-control resize-none" ng-model="themeDescription" maxlength="2000" ng-change="updateDescriptionCharsLeft()"></textarea>
-        <p class="padding-top-10 text-info">Chars left: <span class="text-warning">{{descriptionCharsLeft}}</span></p>
+        <textarea id="theme-description" placeholder="Enter theme description" class="form-control resize-none" ng-model="editDescription" maxlength="2000" ng-change="updateEditCharsLeft()"></textarea>
+        <p class="padding-top-10 text-info">Chars left: <span class="text-warning">{{editCharsLeft}}</span></p>
         <p class="padding-top-20"><strong>Choose theme picture:</strong></p>
         <div class="row change-picture-box">
             <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 choose-theme-picture" ng-repeat="url in pictureUrls">
-                <img src="{{url}}" ng-click="setImage(url)"/>
+                <img src="{{url}}" ng-click="setEditImage(url)"/>
             </div>
         </div>
         <button type="submit" class="btn btn-default margin-top-20" ng-click="updateTheme()">Submit</button>
+        <button class="btn btn-info margin-top-20" ng-click="hideEditTheme()">Cancel</button>
     </form>
     <p class="padding-top-20 text-warning">{{themeWarning}}</p>
 </div>

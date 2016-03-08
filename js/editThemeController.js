@@ -1,13 +1,13 @@
 app.controller("editThemeController", function($scope, $http, userService)
 {
-    $scope.themeTitle = "";
-    $scope.themeDescription = "";
+    $scope.editTitle = "";
+    $scope.editDescription = "";
     $scope.themeWaring = "";
     $scope.pictureUrls = ["img/default_theme.png", "img/l_theme.png", "img/music_theme.png", "img/skull_theme.png", "img/star_theme.png", "img/paper_theme.png"];
     $scope.imageUrl = "img/default_theme.png";
     $scope.titleMaxChars = 150;
     $scope.descriptionMaxChars = 2000;
-    $scope.descriptionCharsLeft = 2000;
+    $scope.editCharsLeft = 2000;
     $scope.showThis = false;
     $scope.themeData = [];
     $scope.themeId;
@@ -24,8 +24,8 @@ app.controller("editThemeController", function($scope, $http, userService)
         .success(function(response)
         {
             $scope.themeData = JSON.parse(JSON.stringify(response));
-            $scope.themeTitle = $scope.themeData[1];
-            $scope.themeDescription = $scope.themeData[2];
+            $scope.editTitle = $scope.themeData[1];
+            $scope.editDescription = $scope.themeData[2];
             $scope.imageUrl = $scope.themeData[3];
             $scope.markSelectedPicture();
             $scope.showThis = true;
@@ -50,7 +50,17 @@ app.controller("editThemeController", function($scope, $http, userService)
         }
     };
     
-    $scope.setImage = function(url)
+    $scope.hideEditTheme = function()
+    {
+        $scope.showThis = false;
+        $scope.themeWarning = "";
+        $scope.editTitle = "";
+        $scope.editDescription = "";
+        $scope.imageUrl = "img/default_theme.png";
+        $scope.showAddTheme = false;
+    };
+    
+    $scope.setEditImage = function(url)
     {
         $scope.imageUrl = url;
         $scope.markSelectedPicture();
@@ -71,20 +81,20 @@ app.controller("editThemeController", function($scope, $http, userService)
         });
     };
     
-    $scope.updateDescriptionCharsLeft = function()
+    $scope.updateEditCharsLeft = function()
     {
-        $scope.descriptionCharsLeft = userService.calculateChars($scope.descriptionMaxChars, $scope.themeDescription);
+        $scope.editCharsLeft = userService.calculateChars($scope.descriptionMaxChars, $scope.editDescription);
     };
     
     $scope.updateTheme = function()
     {
-        if($scope.themeTitle.length <= $scope.titleMaxChars && $scope.themeDescription.length <= $scope.descriptionMaxChars && $scope.themeTitle !== "")
+        if($scope.editTitle.length <= $scope.titleMaxChars && $scope.editDescription.length <= $scope.descriptionMaxChars && $scope.editTitle !== "")
         {
             $scope.themeWarning = "";
             var data =
             {
-                 title: $scope.themeTitle,
-                 description: $scope.themeDescription,
+                 title: $scope.editTitle,
+                 description: $scope.editDescription,
                  picture: $scope.imageUrl,
                  owner: userService.currentUser,
                  id: $scope.themeId,
@@ -97,8 +107,8 @@ app.controller("editThemeController", function($scope, $http, userService)
                 if(response)
                 {
                     $scope.themeWarning = "";
-                    $scope.themeTitle = "";
-                    $scope.themeDescription = "";
+                    $scope.editTitle = "";
+                    $scope.editDescription = "";
                     $scope.imageUrl = "img/default_theme.png";
                     $scope.showThis = false;
                     $scope.getThemes();

@@ -19,8 +19,8 @@
             <tbody>
                 <tr ng-repeat="theme in allThemes">
                     <td class="col-xs-9 col-sm-4 text-decoration-none"><a ng-href="#/theme?id={{theme[3]}}"><img class="visible-sm visible-md visible-lg" src="{{theme[2]}}"/><p class="word-break">{{theme[1]}}</p></a></td>
-                    <td class="col-xs-3 col-sm-2 text-center"><p>{{theme[4]}}</p></td>
-                    <td class="col-sm-6 visible-sm visible-md visible-lg"><p>Last message: <span><b>{{theme[5]}}</b></span> <span class="text-grey">[{{theme[6]}}]</span> <span class="text-decoration-none" ng-show="{{showEdit(theme[0])}}"><a href="" ng-click="editTheme(theme[3])">[edit]</a></span></p></td>
+                    <td class="col-xs-3 col-sm-2 text-center"><p>{{theme[4]}} <span class="text-decoration-none visible-xs" ng-show="{{showEdit(theme[0])}}"><a href="" ng-click="editTheme(theme[3])">[edit]</a></span></p><span class="text-decoration-none visible-xs" ng-show="{{showEdit(theme[0])}}"><a href="" ng-click="deleteTheme(theme[3])">[delete]</a></span></td>
+                    <td class="col-sm-6 visible-sm visible-md visible-lg"><p>Last message: <span><b>{{theme[5]}}</b></span> <span class="text-grey">[{{theme[6]}}]</span> <span class="text-decoration-none" ng-show="{{showEdit(theme[0])}}"><a href="" ng-click="editTheme(theme[3])">[edit]</a></span> <span class="text-decoration-none" ng-show="{{showEdit(theme[0])}}"><a href="" ng-click="deleteTheme(theme[3])">[delete]</a></span></p></td>
                 </tr>
             </tbody>
         </table>

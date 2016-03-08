@@ -49,6 +49,16 @@ app.controller("addThemeController", function($scope, $http, userService)
         $scope.descriptionCharsLeft = userService.calculateChars($scope.descriptionMaxChars, $scope.themeDescription);
     };
     
+    $scope.hideAddTheme = function()
+    {
+        $scope.showAddTheme = false;
+        $scope.themeWarning = "";
+        $scope.themeTitle = "";
+        $scope.themeDescription = "";
+        $scope.imageUrl = "img/default_theme.png";
+        $scope.showAddTheme = false;
+    };
+    
     $scope.addTheme = function()
     {
         if($scope.themeTitle.length <= $scope.titleMaxChars && $scope.themeDescription.length <= $scope.descriptionMaxChars && $scope.themeTitle !== "")
