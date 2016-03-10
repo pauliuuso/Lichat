@@ -220,9 +220,18 @@ app.controller("themeController", function($scope, $http, $location, userService
         alert(id);
     };
     
-    $scope.deleteMessage = function(id)
+    $scope.deleteMessage = function(id, index)
     {
-        alert(id);
+        var data = {username: userService.currentUser, token: userService.token, id: id, level: userService.userLevel};
+        $http.post("server/deleteMessage.php", data)
+        .success(function(response)
+        {
+            $scope.allMessages.splice(index, 1);
+        })
+        .error(function(error)
+        {
+            console.error(error);
+        });
     };
 
     $scope.$on("lastElement", function()
