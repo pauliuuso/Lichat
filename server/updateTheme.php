@@ -8,21 +8,49 @@ $response = "";
 $title = $data -> title;
 $description = $data -> description;
 $picture = $data -> picture;
-$owner = $data -> owner;
+$username = $data -> owner;
 $id = $data -> id;
 $token = $data -> token;
+$level = $data -> level;
 
-if(checkToken($token, $owner))
+if(checkToken($token, $username))
 {
-    updateTheme();
+    startThemeUpdation();
+}
+
+function startThemeUpdation()
+{
+    global $username, $level;
+    
+    $owner = getOwner();
+    
+    if($username === $owner || $level >= 2)
+    {
+        updateTheme();
+    }
+    else
+    {
+        echo "You have no right to updte this message!";
+    }
+}
+
+function getOwner()
+{
+    global $connection, $id;
+    $sql = "SELECT owner FROM themes WHERE id = $id";
+    $statement = mysqli_prepare($connection, $sql);
+    $statement->execute();
+    $statement->bind_result($owner);
+    $statement->fetch();
+    return $owner;
 }
 
 
 function updateTheme()
 {
-    global $connection, $title, $description, $picture, $owner, $id, $response;
+    global $connection, $title, $description, $picture, $id, $response;
     
-    $sql = "UPDATE themes SET owner = '$owner', title = '$title', description = '$description', picture = '$picture' WHERE id = $id";
+    $sql = "UPDATE themes SET title = '$title', description = '$description', picture = '$picture' WHERE id = $id";
     $statement = mysqli_prepare($connection, $sql);
     if($statement->execute())
     {

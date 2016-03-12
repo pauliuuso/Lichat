@@ -98,7 +98,8 @@ app.controller("editThemeController", function($scope, $http, userService)
                  picture: $scope.imageUrl,
                  owner: userService.currentUser,
                  id: $scope.themeId,
-                 token: userService.token
+                 token: userService.token,
+                 level: userService.userLevel
             };
             
             $http.post("server/updateTheme.php", data)

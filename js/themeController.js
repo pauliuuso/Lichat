@@ -1,5 +1,6 @@
 app.controller("themeController", function($scope, $http, $location, userService)
 {
+   $scope.oldMessages = [];
    $scope.allMessages = [];
    $scope.themeData;
    $scope.id = $location.search().id;
@@ -15,6 +16,12 @@ app.controller("themeController", function($scope, $http, $location, userService
    $scope.messageLoadInterval = 1000;
    $scope.checkForMessagesInt = 1240;
    $scope.loaderVisible = true;
+   $scope.editOrEnter = "Enter";
+   $scope.editing = false;
+   $scope.displayCancel = false;
+   $scope.editId = 0;
+   $scope.editIndex = 0;
+
    
    var messageLoadInterval = setInterval(function()
    {
@@ -55,9 +62,10 @@ app.controller("themeController", function($scope, $http, $location, userService
            }
        };
     };
-    
+    var a = 0;
     $scope.showEditMessage = function(owner)
     {
+                console.log(a++);
         if(owner === userService.currentUser || userService.userLevel >= 2)
         {
             return true;
@@ -67,7 +75,7 @@ app.controller("themeController", function($scope, $http, $location, userService
             return false;
         }
     };
-    
+
     $scope.getNewMessages = function()
     {
         var messageBoard = $(".message-board");
@@ -167,28 +175,37 @@ app.controller("themeController", function($scope, $http, $location, userService
         });
     };
    
-    $scope.sendMessage = function()
+    $scope.sendMessage = function($index)
     {
         if($scope.messageText.length <= 5000 && $scope.messageText !== "")
         {
             $scope.messageWarning = "";
+            var serverUrl = "server/sendMessage.php";
+            if($scope.editing) serverUrl = "server/updateMessage.php";
 
             var data =
             {
                   username: userService.currentUser,
                   message: $scope.messageText,
                   theme: $scope.id,
-                  token: userService.token
+                  token: userService.token,
+                  messageId: $scope.editId,
+                  level: userService.userLevel
             };
             
-            $http.post("server/sendMessage.php", data)
+            $http.post(serverUrl, data)
             .success(function(response)
             {
+                if($scope.editing)
+                {
+                    $scope.allMessages[$scope.editIndex][2] = $scope.messageText;
+                }
                 $scope.messageText = "";
                 $scope.messageWarning = "";
                 $scope.messageCharsLeft = $scope.messageMaxChars;
                 $scope.messageCount++; // This is needed display message that user sent faster for him
                 $scope.getNewMessages();
+                $scope.cancelEdit();
             })
             .error(function(error)
             {
@@ -215,9 +232,24 @@ app.controller("themeController", function($scope, $http, $location, userService
         $scope.messageCharsLeft = userService.calculateChars($scope.messageMaxChars, $scope.messageText);
     };
     
-    $scope.editMessage = function(id)
+    $scope.editMessage = function(id, message, $index)
     {
-        alert(id);
+        $scope.editOrEnter = "Edit";
+        $scope.editing = true;
+        $scope.displayCancel = true;
+        $scope.messageText = message;
+        $scope.editId = id;
+        $scope.editIndex = $index;
+    };
+    
+    $scope.cancelEdit = function()
+    {
+        $scope.editOrEnter = "Enter";
+        $scope.editing = false;
+        $scope.displayCancel = false;
+        $scope.messageText = "";
+        $scope.editId = 0;
+        $scope.editIndex = 0;
     };
     
     $scope.deleteMessage = function(id, index)

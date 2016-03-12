@@ -3,35 +3,36 @@
 include "connection.php";
 
 $data = json_decode(file_get_contents("php://input"));
-$response = "";
 
-$username = $data -> username;
-$id = $data -> id;
-$token = $data -> token;
-$level = $data -> level;
+$username = $data->username;
+$message = $data->message;
+$themeId = $data->theme;
+$token = $data->token;
+$id = $data->messageId;
+$level = $data->level;
 
 if(checkToken($token, $username))
 {
-    startMessageDeletion();
+    startMessageUpdation();
 }
 else
 {
-    $response = "Wrong token";
+    echo false;
 }
 
-function startMessageDeletion()
+function startMessageUpdation()
 {
-    global $username, $level, $id, $response;
+    global $username, $level;
     
     $owner = getOwner();
     
     if($username === $owner || $level >= 2)
     {
-        deleteMessage($id);
+        updateMessage();
     }
     else
     {
-        $response = "You have no right to delete this messsage.";
+        echo "You have no right to updte this message!";
     }
 }
 
@@ -46,21 +47,17 @@ function getOwner()
     return $owner;
 }
 
-function deleteMessage($id)
+function updateMessage()
 {
-    global $connection, $response;
-    
-    $sql = "DELETE FROM messages WHERE id = $id";
+    global $connection, $message, $id;
+    $sql = "UPDATE messages SET message = '$message' WHERE id = $id";
     $statement = mysqli_prepare($connection, $sql);
     if($statement->execute())
     {
-        $response = "Message deleted!";
+        echo true;
     }
     else
     {
-        $response = "Failed to delete theme!";
+        echo false;
     }
-
-    echo $response;
-    
 }
