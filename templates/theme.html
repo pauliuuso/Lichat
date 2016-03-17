@@ -17,8 +17,11 @@
             <p class="padding-bottom-5 word-break">{{message[2]}}</p>
         </div>
     </div>
-    <div class="col-sm-2 visible-sm visible-md visible-lg">
+    <div class="col-sm-2 visible-sm visible-md visible-lg online-board">
         <p><b>Online:</b></p>
+        <div ng-repeat="user in onlineUsers">
+            <p class="line-height-10 text-decoration-none"><a ng-href="#/user?username={{user}}">{{user}}</a></p>
+        </div>
     </div>
     <div class="col-xs-12 col-sm-10 margin-top-20">
         <form role="form">

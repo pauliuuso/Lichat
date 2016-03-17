@@ -20,6 +20,9 @@
 .lichat-content {
   position: relative;
 }
+.padding-none {
+  padding: none;
+}
 .padding-bottom-5 {
   padding-bottom: 5px;
 }
@@ -149,11 +152,27 @@
 .line-height-0 {
   line-height: 0px;
 }
+.line-height-10 {
+  line-height: 10px;
+}
 .message-board {
   padding-top: 10px;
   vertical-align: text-bottom;
   height: 400px;
   overflow-y: scroll;
+}
+.online-board {
+  height: 400px;
+  overflow-y: auto;
+}
+.overflow-scroll {
+  overflow-y: scroll;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-auto {
+  overflow-y: auto;
 }
 .message-loader img {
   width: 60px;

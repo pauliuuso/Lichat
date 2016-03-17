@@ -2,6 +2,7 @@ app.controller("themeController", function($scope, $http, $location, userService
 {
    $scope.oldMessages = [];
    $scope.allMessages = [];
+   $scope.onlineUsers = [];
    $scope.themeData;
    $scope.id = $location.search().id;
    $scope.messageText = "";
@@ -31,6 +32,8 @@ app.controller("themeController", function($scope, $http, $location, userService
    var checkForNewMessages = setInterval(function()
    {
        $scope.getNewMessages();
+       $scope.setVisitDate();
+       $scope.checkOnline();
    }, $scope.checkForMessagesInt);
    
     $scope.messageQuery = function()
@@ -62,10 +65,9 @@ app.controller("themeController", function($scope, $http, $location, userService
            }
        };
     };
-    var a = 0;
+    
     $scope.showEditMessage = function(owner)
     {
-                console.log(a++);
         if(owner === userService.currentUser || userService.userLevel >= 2)
         {
             return true;
@@ -88,8 +90,28 @@ app.controller("themeController", function($scope, $http, $location, userService
         }
         $scope.getMessageCount();
     };
+    
+    $scope.setVisitDate = function()
+    {
+        var data = {username: userService.currentUser, token: userService.token};
+        $http.post("server/setVisitDate.php", data);
+    };
+    
+    $scope.checkOnline = function()
+    {
+        $http.post("server/checkOnline.php")
+        .success(function(response)
+        {
+            $scope.onlineUsers = JSON.parse(JSON.stringify(response));
+        });
+    };
    
     $scope.goToBottom = function(amount)
+    {
+        var bottomTimer = window.setTimeout(function(){$scope.goBottom(amount);}, 300);
+    };
+    
+    $scope.goBottom = function(amount)
     {
         var messageBoard = $(".message-board");
         if(!amount)
@@ -143,8 +165,10 @@ app.controller("themeController", function($scope, $http, $location, userService
                }
             }
             else if(type === "new")
-            {
+            {   
+                var messageBoard = $(".message-board");
                 $scope.allMessages = $.merge($scope.allMessages, newMessages);
+                if(messageBoard.prop("scrollHeight") === messageBoard.scrollTop() + 400) $scope.goToBottom();
             }
         })
         .error(function(error)
@@ -206,6 +230,7 @@ app.controller("themeController", function($scope, $http, $location, userService
                 $scope.messageCount++; // This is needed display message that user sent faster for him
                 $scope.getNewMessages();
                 $scope.cancelEdit();
+                $scope.goToBottom();
             })
             .error(function(error)
             {
@@ -268,7 +293,7 @@ app.controller("themeController", function($scope, $http, $location, userService
 
     $scope.$on("lastElement", function()
     {
-        $scope.goToBottom();
+        //$scope.goToBottom();
     });
     
     $scope.$on("$destroy", function()
@@ -279,5 +304,6 @@ app.controller("themeController", function($scope, $http, $location, userService
 
     $scope.getTheme();
     $scope.getMessageCount();
+    $scope.goToBottom();
    
 });
