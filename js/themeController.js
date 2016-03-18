@@ -1,4 +1,4 @@
-app.controller("themeController", function($scope, $http, $location, userService)
+app.controller("themeController", function($scope, $http, $location, $sce, userService)
 {
    $scope.oldMessages = [];
    $scope.allMessages = [];
@@ -65,6 +65,7 @@ app.controller("themeController", function($scope, $http, $location, userService
            }
        };
     };
+
     
     $scope.showEditMessage = function(owner)
     {
@@ -300,6 +301,15 @@ app.controller("themeController", function($scope, $http, $location, userService
     {
         clearInterval(messageLoadInterval);
         clearInterval(checkForNewMessages);
+    });
+    
+    $(document).keypress(function(e)
+    {
+        if(e.which === 13)
+        {
+            $scope.sendMessage();
+        }
+        
     });
 
     $scope.getTheme();

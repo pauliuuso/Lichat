@@ -24,6 +24,11 @@
                 </tr>
             </tbody>
         </table>
+        <div class="pagination-cube text-decoration-none">
+            <div ng-repeat="page in paginationArray" class="{{ifCurrent(page)}}">
+                <a href="" ng-click="gotoPage(page)"><p>{{page + 1}}</p></a>
+            </div>
+        </div>
     </div>
     <addtheme></addtheme>
     <edittheme></edittheme>

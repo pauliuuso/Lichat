@@ -3,18 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/www/lichat/templates/theme.html</file>
+            <file>file:/C:/www/lichat/js/app.js</file>
             <file>file:/C:/www/lichat/css/style.less</file>
             <file>file:/C:/www/lichat/js/themeController.js</file>
             <file>file:/C:/www/lichat/server/connection.php</file>
-            <file>file:/C:/www/lichat/js/editThemeController.js</file>
             <file>file:/C:/www/lichat/js/homeController.js</file>
+            <file>file:/C:/www/lichat/server/setVisitDate.php</file>
+            <file>file:/C:/www/lichat/server/updateMessage.php</file>
+            <file>file:/C:/www/lichat/services/userService.js</file>
+            <file>file:/C:/www/lichat/server/checkOnline.php</file>
+            <file>file:/C:/www/lichat/templates/theme.html</file>
+            <file>file:/C:/www/lichat/server/getThemes.php</file>
+            <file>file:/C:/www/lichat/js/editThemeController.js</file>
             <file>file:/C:/www/lichat/server/updateTheme.php</file>
             <file>file:/C:/www/lichat/server/deleteMessage.php</file>
             <file>file:/C:/www/lichat/templates/home.html</file>
             <file>file:/C:/www/lichat/server/getMessages.php</file>
-            <file>file:/C:/www/lichat/server/updateMessage.php</file>
-            <file>file:/C:/www/lichat/services/userService.js</file>
+            <file>file:/C:/www/lichat/index.html</file>
         </group>
     </open-files>
 </project-private>

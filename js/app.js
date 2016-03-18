@@ -1,4 +1,4 @@
-var app = angular.module("Lichat", ["ngRoute"]);
+var app = angular.module("Lichat", ["ngRoute", "ngSanitize"]);
 
 app.config(function($routeProvider, $locationProvider)
 {
@@ -124,6 +124,16 @@ app.directive("welcome", function() // This is directive displays welcome user a
         transclude: true,
         templateUrl: "templates/welcome.html",
         controller: "welcomeController"
+    };
+});
+
+app.directive("levels", function() // This is directive displays welcome user and logout function
+{
+    return{
+        restrict: "E",
+        transclude: true,
+        templateUrl: "templates/levels.html",
+        controller: "levelsController"
     };
 });
 

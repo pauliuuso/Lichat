@@ -14,7 +14,7 @@
         </div>
         <div ng-repeat="message in allMessages track by $index" class="fade-in" on-repeat-finish>
             <p class="text-decoration-none line-height-0"><a ng-href="#/user?username={{message[1]}}">{{message[1]}}</a> <span class="text-grey">[{{message[3]}}]</span> <span class="text-decoration-none" ng-show="{{showEditMessage(message[1])}}"><a href="" ng-click="editMessage(message[0], message[2], $index)">[edit]</a></span> <span class="text-decoration-none" ng-show="{{showEditMessage(message[1])}}"><a href="" ng-click="deleteMessage(message[0], $index)">[delete]</a></span></p>
-            <p class="padding-bottom-5 word-break">{{message[2]}}</p>
+            <p class="padding-bottom-5 word-break" ng-bind-html="message[2] | linky"></p>
         </div>
     </div>
     <div class="col-sm-2 visible-sm visible-md visible-lg online-board">

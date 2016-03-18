@@ -207,6 +207,7 @@
         }
         a
         {
+            outline: 0;
             p
             {
                 color: #055283;
@@ -310,6 +311,32 @@
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+
+.pagination-cube
+{
+    float: right;
+    div
+    {
+        float: left;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        background: #D5F7D7;
+        margin: 5px;
+        p
+        {
+            padding-top: 10px;
+        }
+        a
+        {
+            outline: 0;
+        }
+    }
+    div:hover, div.active
+    {
+        background: #95db9a;
+    }
 }
 
 .float-left

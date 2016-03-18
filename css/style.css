@@ -131,6 +131,9 @@
 .theme-table td i {
   color: grey;
 }
+.theme-table td a {
+  outline: 0;
+}
 .theme-table td a p {
   color: #055283;
 }
@@ -193,6 +196,27 @@
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+.pagination-cube {
+  float: right;
+}
+.pagination-cube div {
+  float: left;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background: #D5F7D7;
+  margin: 5px;
+}
+.pagination-cube div p {
+  padding-top: 10px;
+}
+.pagination-cube div a {
+  outline: 0;
+}
+.pagination-cube div:hover,
+.pagination-cube div.active {
+  background: #95db9a;
 }
 .float-left {
   float: left;
