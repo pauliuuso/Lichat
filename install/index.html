@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html class="height-100">
+    <head>
+        <base href="/">
+        <title>Lichat</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="../js/install.js"></script>
+    </head>
+    <body class="height-100 bg-lichat">
+        <div class="container-fluid col-xs-12 col-md-10 col-md-offset-1 height-100">
+            <div class="row">
+                <a ng-href="#/"><div class="col-xs-12 lichat-header"></div></a>
+            </div>
+            
+            <div class="row bg-white lichat-content">
+                <div class="col-xs-12 margin-bottom-50">
+                    <h2 class="padding-bottom-5">Install Lichat</h2>
+                    <p>Connection with database: <b id="connection"></b></p>
+                    <div id="installForm" class="row">
+                        <form id="install-form" role="form" class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="username" class="margin-top-20">Enter your admin user name</label>
+                                <input id="username" type="text" placeholder="Username" class="form-control"/>
+                                <label for="email" class="margin-top-20">Enter your email address</label>
+                                <input id="email" type="text" placeholder="Email" class="form-control"/>
+                                <label for="password1" class="margin-top-20">Enter your admin password</label>
+                                <input id="password1" type="password" placeholder="Password" class="form-control"/>
+                                <label for="password2" class="margin-top-20">Enter your admin password again</label>
+                                <input id="password2" type="password" placeholder="Confirm password" class="form-control"/>
+                                <button id="install" type="submit" class="btn btn-default margin-top-20">Install</button>
+                            </div>
+                        </form>
+                    </div>
+                    <p class="text-warning" id="installWarning"></p>
+                    <div id="progress" class="hidden">
+                        <p>Creating messages table.. <b id="messagesSuccess"></b></p>
+                        <p>Creating themes table.. <b id="themesSuccess"></b></p>
+                        <p>Creating users table.. <b id="usersSuccess"></b></p>
+                        <p>Creating admin user.. <b id="adminSuccess"></b></p>
+                    </div>
+                    <p class="text-warning" id="installWarning2"></p>
+                    <div id="installationSuccess" class="hidden">
+                        <h4 class="text-info padding-top-20">Success!</h4>
+                        <p>Please now delete <b>/install</b> directory from your server</p>
+                        <p>Now you can go to the <a id="mainScreen">home page</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </body>
+</html>

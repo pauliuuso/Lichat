@@ -2,6 +2,7 @@ app.controller("loginController", function($scope, $http, $location, userService
 {
     $scope.loginResponse = "";
     $scope.registerUrl = "register";
+    $scope.forgotUrl = "forgot";
 
     $scope.loginInfo = 
     {

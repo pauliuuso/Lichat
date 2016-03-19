@@ -56,6 +56,19 @@ app.config(function($routeProvider, $locationProvider)
         controller: "allusersController",
         templateUrl: "templates/allUsers.html"
     })
+    .when("/privileges",
+    {
+        resolve:
+        {
+            "check": function($location, $http)
+            {
+                checkToken($location, $http);
+            }
+        },
+        transclude: true,
+        controller: "privilegesController",
+        templateUrl: "templates/privileges.html"
+    })
     .when("/register",
     {
         transclude: true,
@@ -67,6 +80,12 @@ app.config(function($routeProvider, $locationProvider)
         transclude: true,
         controller: "loginController",
         templateUrl: "templates/login.html"
+    })
+    .when("/forgot",
+    {
+        transclude: true,
+        controller: "forgotController",
+        templateUrl: "templates/forgot.html"
     })
     .otherwise
     ({

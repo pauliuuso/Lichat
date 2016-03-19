@@ -27,6 +27,9 @@ if(isCorrect($user) && isCorrect($userPassword) && isCorrect($userEmail) && $isG
         $statement->bind_param("sss", $user, $userEmail, $userPassword);
         if($statement->execute())
         {
+            $headers = "From: robot@lichat.com";
+            $message = "Welcome to lichat!\r\nYour username is '$user'\r\nHave a good time!";
+            mail($userEmail, "Lichat registration", $message, $headers);
             $response = "created";
         }
         else

@@ -1,0 +1,28 @@
+<div class="row">
+    <welcome></welcome>
+    <back></back>
+    <div class="col-xs-12">
+        <h2>Edit user privileges:</h2>
+        <p>Level 0 - guest (can only view)</p>
+        <p>Level 1 - registered user (can view, create themes and post messages)</p>
+        <p>Level 2 - moderator (can delete any theme or message)</p>
+        <p>Level 3 - admin (can delete any theme or message, can grant user privileges)</p><br/>
+        <div class="row col-xs-12 col-sm-6 col-md-4">
+            <form role="form">
+                <div class="form-group">
+                    <label for="selectUser">Select user:</label>
+                    <select name="selectUser" class="margin-bottom-20 form-control" ng-model="selectedUser" ng-selected="1">
+                        <option ng-repeat="user in allUsers" value="{{user[2]}}">{{user[0] + " (" + user[3] + ")"}}</option>
+                    </select>
+                    <label for="selectLevel">Set level:</label>
+                    <select name="selectLevel" class="form-control" ng-model="selectedLevel">
+                        <option ng-repeat="level in allLevels" value="{{level}}">{{level}}</option>
+                    </select>
+                    <p class="text-info padding-top-10" ng-show="showWarning">Updated successfully</p>
+                    <br/>
+                    <button type="submit" class="btn btn-default" ng-click="setLevel()">Submit</button>
+                </div>
+            </form>
+        <div>
+    </div>
+</div>
