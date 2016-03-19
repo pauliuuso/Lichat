@@ -5,6 +5,7 @@ include "connection.php";
 $data = json_decode(file_get_contents("php://input"));
 $response = "";
 
+$date = date("Y-m-d H:i:s");
 $title = $data -> title;
 $description = $data -> description;
 $picture = $data -> picture;
@@ -19,8 +20,8 @@ if(checkToken($token, $owner))
 
 function addTheme()
 {
-    global $connection, $owner, $title, $description, $picture;
-    $sql = "INSERT INTO themes (owner, title, description, picture, date) VALUES ('$owner', '$title', '$description', '$picture', NOW())";
+    global $connection, $owner, $title, $description, $picture, $date;
+    $sql = "INSERT INTO themes (owner, title, description, picture, date) VALUES ('$owner', '$title', '$description', '$picture', '$date')";
     $statement = mysqli_prepare($connection, $sql);
     if($statement->execute())
     {

@@ -5,6 +5,7 @@ include "connection.php";
 $data = json_decode(file_get_contents("php://input"));
 $response = "";
 
+$date = date("Y-m-d H:i:s");
 $username = $data->username;
 $message = $data->message;
 $themeId = $data->theme;
@@ -18,8 +19,8 @@ if(checkToken($token, $username))
 
 function sendMessage()
 {
-    global $connection, $themeId, $username, $message;
-    $sql = "INSERT INTO messages (theme, owner, message, date) VALUES ('$themeId', '$username', '$message', NOW())";
+    global $connection, $themeId, $username, $message, $date;
+    $sql = "INSERT INTO messages (theme, owner, message, date) VALUES ('$themeId', '$username', '$message', '$date')";
     $statement = mysqli_prepare($connection, $sql);
     if($statement->execute())
     {

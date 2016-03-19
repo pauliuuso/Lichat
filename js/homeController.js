@@ -1,6 +1,6 @@
 app.controller("homeController", function($scope, $http, userService)
 {
-    $scope.allThemes;
+    $scope.allThemes = [];
     $scope.showFrom = 0;
     $scope.themeCount = 0;
     $scope.showCount = 10;

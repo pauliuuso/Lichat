@@ -5,12 +5,9 @@ include "connection.php";
 $data = array();
 $startFrom = intval(json_decode(file_get_contents("php://input")));
 
-getAllThemes();
-
 function getAllThemes()
 {
     global $connection, $data, $startFrom;
-    
     $sql = "SELECT owner, title, picture, id FROM themes ORDER BY date DESC LIMIT 10 OFFSET $startFrom";
     $statement = mysqli_prepare($connection, $sql);
     $statement->execute();
@@ -52,3 +49,5 @@ function getMessageOwner($id) // Get owner of the last message in selected theme
         return array($owner, $date);
     }
 }
+
+getAllThemes();
