@@ -1,9 +1,9 @@
 <?php
 
-$_hostname = "your_mysql_server_url";
-$_username = "username_for_lichat_database";
-$_password = "password_for_lichat database";
-$_database = "database_name";
+$_hostname = "localhost";
+$_username = "lichat";
+$_password = "wolf";
+$_database = "lichat";
 
 date_default_timezone_set('Europe/Vilnius');
 error_reporting(0);
