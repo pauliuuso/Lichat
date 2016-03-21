@@ -22,6 +22,7 @@ app.controller("themeController", function($scope, $http, $location, $sce, userS
    $scope.displayCancel = false;
    $scope.editId = 0;
    $scope.editIndex = 0;
+   $scope.firstLoad = true;
 
    
    var messageLoadInterval = setInterval(function()
@@ -107,9 +108,9 @@ app.controller("themeController", function($scope, $http, $location, $sce, userS
         });
     };
    
-    $scope.goToBottom = function(amount)
+    $scope.goToBottom = function(amount, time)
     {
-        var bottomTimer = window.setTimeout(function(){$scope.goBottom(amount);}, 300);
+        var bottomTimer = window.setTimeout(function(){$scope.goBottom(amount);}, time);
     };
     
     $scope.goBottom = function(amount)
@@ -162,14 +163,12 @@ app.controller("themeController", function($scope, $http, $location, $sce, userS
                else
                {
                    $scope.allMessages = $.merge(newMessages, $scope.allMessages);
-                   $scope.goToBottom(100);
+                   $scope.goToBottom(100, 200);
                }
             }
             else if(type === "new")
             {   
-                var messageBoard = $(".message-board");
                 $scope.allMessages = $.merge($scope.allMessages, newMessages);
-                if(messageBoard.prop("scrollHeight") === messageBoard.scrollTop() + 400) $scope.goToBottom();
             }
         })
         .error(function(error)
@@ -231,7 +230,7 @@ app.controller("themeController", function($scope, $http, $location, $sce, userS
                 $scope.messageCount++; // This is needed display message that user sent faster for him
                 $scope.getNewMessages();
                 $scope.cancelEdit();
-                $scope.goToBottom();
+                $scope.goToBottom(null, 250);
             })
             .error(function(error)
             {
@@ -294,7 +293,12 @@ app.controller("themeController", function($scope, $http, $location, $sce, userS
 
     $scope.$on("lastElement", function()
     {
-        //$scope.goToBottom();
+        var messageBoard = $(".message-board");
+        if(messageBoard.prop("scrollHeight") === messageBoard.scrollTop() + 400 || $scope.firstLoad)
+        {
+            $scope.firstLoad = false;
+            $scope.goToBottom(null, 800);
+        }
     });
     
     $scope.$on("$destroy", function()
@@ -314,6 +318,4 @@ app.controller("themeController", function($scope, $http, $location, $sce, userS
 
     $scope.getTheme();
     $scope.getMessageCount();
-    $scope.goToBottom();
-   
 });
