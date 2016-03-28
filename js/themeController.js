@@ -179,6 +179,11 @@ app.controller("themeController",["$scope", "$http", "$location", "$sce", "userS
    
     $scope.getMessageCount = function()
     {
+        window.setTimeout(function(){$scope.parseMessageCount();}, 200);
+    };
+    
+    $scope.parseMessageCount = function()
+    {
         $http.post("server/getMessageCount.php", $scope.id)
         .success(function(response)
         {
