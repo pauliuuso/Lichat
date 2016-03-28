@@ -1,10 +1,10 @@
-app.controller("userController", function($scope, $location, $http, userService)
+app.controller("userController", ["$scope", "$location", "$http", "userService", function($scope, $location, $http, userService)
 {
     $scope.pictureUrl = "";
     $scope.username = $location.search().username;
     $scope.currentUser = userService.currentUser;
-    $scope.level;
-    $scope.lastVisit;
+    $scope.level = 0;
+    $scope.lastVisit = "";
     $scope.changeShow = false; // if true it will show password change fields
     $scope.changePictureShow = false; // if ture it will show change picture button
     
@@ -41,5 +41,5 @@ app.controller("userController", function($scope, $location, $http, userService)
     //functions that are called on init
     $scope.getUserInfo();
     
-});
+}]);
 

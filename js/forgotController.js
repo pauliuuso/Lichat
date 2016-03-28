@@ -1,10 +1,10 @@
-app.controller("forgotController", function($scope, $http)
+app.controller("forgotController",["$scope", "$http", function($scope, $http)
 {
     $scope.loginUrl = "login";
     $scope.reseted = false;
     $scope.forgotShow = true;
-    $scope.username;
-    $scope.email;
+    $scope.username = "";
+    $scope.email = "";
     $scope.forgotResponse = "";
     
     $scope.resetPassword = function()
@@ -26,4 +26,4 @@ app.controller("forgotController", function($scope, $http)
         });
     };
 
-});
+}]);

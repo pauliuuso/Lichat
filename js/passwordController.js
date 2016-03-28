@@ -1,8 +1,8 @@
-app.controller("passwordController", function($scope, $http, userService)
+app.controller("passwordController",["$scope", "$http", "userService", function($scope, $http, userService)
 {
     $scope.changeResponse = "";
-    $scope.newPassword;
-    $scope.newPassword2;
+    $scope.newPassword = "";
+    $scope.newPassword2 = "";
     $scope.currentUser = userService.currentUser;
     
     $scope.changePassword = function()
@@ -30,5 +30,5 @@ app.controller("passwordController", function($scope, $http, userService)
 
     };
     
-});
+}]);
 

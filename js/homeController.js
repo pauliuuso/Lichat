@@ -1,4 +1,4 @@
-app.controller("homeController", function($scope, $http, userService)
+app.controller("homeController",["$scope", "$http", "userService", function($scope, $http, userService)
 {
     $scope.allThemes = [];
     $scope.showFrom = 0;
@@ -91,5 +91,5 @@ app.controller("homeController", function($scope, $http, userService)
     
     $scope.getThemes();
     
-});
+}]);
 

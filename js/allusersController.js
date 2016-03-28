@@ -1,6 +1,6 @@
-app.controller("allusersController", function($scope, $http)
+app.controller("allusersController",["$scope", "$http", function($scope, $http)
 {
-    $scope.allUsers;
+    $scope.allUsers = [];
     $scope.getAllUsers = function()
     {
         $http.post("server/getAllUsers.php")
@@ -20,5 +20,5 @@ app.controller("allusersController", function($scope, $http)
     //functions that are called on init
     $scope.getAllUsers();
     
-});
+}]);
 

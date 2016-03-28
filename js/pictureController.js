@@ -1,4 +1,4 @@
-app.controller("pictureController", function($scope, $http, userService) //Controls directory which allows user to change it's picture
+app.controller("pictureController",["$scope", "$http", "userService", function($scope, $http, userService) //Controls directory which allows user to change it's picture
 {
     $scope.pictureBoxShow = false;
     $scope.pictureUrl = userService.pictureUrl;
@@ -28,7 +28,7 @@ app.controller("pictureController", function($scope, $http, userService) //Contr
             else
             {
                 $(this).attr("class", "");
-            };
+            }
         });
     };
     
@@ -61,4 +61,4 @@ app.controller("pictureController", function($scope, $http, userService) //Contr
     
     $scope.getPicNames();
     
-});
+}]);

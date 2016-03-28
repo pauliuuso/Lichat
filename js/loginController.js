@@ -1,4 +1,4 @@
-app.controller("loginController", function($scope, $http, $location, userService)
+app.controller("loginController", ["$scope", "$http", "$location", "userService", function($scope, $http, $location, userService)
 {
     $scope.loginResponse = "";
     $scope.registerUrl = "register";
@@ -45,4 +45,4 @@ app.controller("loginController", function($scope, $http, $location, userService
         
     };
 
-});
+}]);

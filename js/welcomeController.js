@@ -1,4 +1,4 @@
-app.controller("welcomeController", function($scope, $location, $http)
+app.controller("welcomeController",["$scope", "$location", "$http", function($scope, $location, $http)
 {
     $scope.welcomeUsername = localStorage["name"];
     var token = localStorage["token"];
@@ -24,5 +24,5 @@ app.controller("welcomeController", function($scope, $location, $http)
         });
     };
     
-});
+}]);
 

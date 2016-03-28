@@ -1,4 +1,4 @@
-app.controller("editThemeController", function($scope, $http, userService)
+app.controller("editThemeController",["$scope", "$http", "userService", function($scope, $http, userService)
 {
     $scope.editTitle = "";
     $scope.editDescription = "";
@@ -10,7 +10,7 @@ app.controller("editThemeController", function($scope, $http, userService)
     $scope.editCharsLeft = 2000;
     $scope.showThis = false;
     $scope.themeData = [];
-    $scope.themeId;
+    $scope.themeId = 0;
 
     $scope.editTheme = function(id)
     {
@@ -77,7 +77,7 @@ app.controller("editThemeController", function($scope, $http, userService)
             else
             {
                 $(this).attr("class", "");
-            };
+            }
         });
     };
     
@@ -131,5 +131,5 @@ app.controller("editThemeController", function($scope, $http, userService)
         }
     };
     
-});
+}]);
 

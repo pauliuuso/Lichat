@@ -1,6 +1,6 @@
-app.controller("privilegesController", function($scope, $http, userService)
+app.controller("privilegesController",["$scope", "$http", "userService", function($scope, $http, userService)
 {
-    $scope.allUsers;
+    $scope.allUsers = [];
     $scope.selectedUser = 1;
     $scope.selectedLevel = 1;
     $scope.allLevels = [];
@@ -55,5 +55,4 @@ app.controller("privilegesController", function($scope, $http, userService)
     $scope.getAllUsers();
     $scope.buildLevels();
     
-});
-
+}]);

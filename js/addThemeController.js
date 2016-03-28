@@ -1,4 +1,4 @@
-app.controller("addThemeController", function($scope, $http, userService)
+app.controller("addThemeController",["$scope", "$http", "userService", function($scope, $http, userService)
 {
     $scope.showAddTheme = false;
     $scope.themeTitle = "";
@@ -40,7 +40,7 @@ app.controller("addThemeController", function($scope, $http, userService)
             else
             {
                 $(this).attr("class", "");
-            };
+            }
         });
     };
     
@@ -102,5 +102,5 @@ app.controller("addThemeController", function($scope, $http, userService)
         }
     };
     
-});
+}]);
 

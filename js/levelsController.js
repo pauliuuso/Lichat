@@ -1,4 +1,4 @@
-app.controller("levelsController", function($scope, userService)
+app.controller("levelsController",["$scope", "userService", function($scope, userService)
 {
     $scope.showLevels = false;
     
@@ -12,4 +12,4 @@ app.controller("levelsController", function($scope, userService)
     
     $scope.checkIfAdmin();
     
-});
+}]);

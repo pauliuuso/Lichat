@@ -1,9 +1,9 @@
-app.controller("themeController", function($scope, $http, $location, $sce, userService)
+app.controller("themeController",["$scope", "$http", "$location", "$sce", "userService", function($scope, $http, $location, $sce, userService)
 {
    $scope.oldMessages = [];
    $scope.allMessages = [];
    $scope.onlineUsers = [];
-   $scope.themeData;
+   $scope.themeData = [];
    $scope.id = $location.search().id;
    $scope.messageText = "";
    $scope.messageMaxChars = 5000;
@@ -64,7 +64,7 @@ app.controller("themeController", function($scope, $http, $location, $sce, userS
                 clearInterval(messageLoadInterval);
                 $scope.loaderVisible = false;
            }
-       };
+       }
     };
 
     
@@ -318,4 +318,4 @@ app.controller("themeController", function($scope, $http, $location, $sce, userS
 
     $scope.getTheme();
     $scope.getMessageCount();
-});
+}]);
