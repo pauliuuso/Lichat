@@ -14,8 +14,8 @@ app.controller("themeController",["$scope", "$http", "$location", "$sce", "userS
    $scope.firstMessagesLoaded = false;
    $scope.messageLoadStep = 10;
    $scope.messagesToLoad = 10; //First load step is bigger to fill full message board screen
-   $scope.messageLoadInterval = 1000;
-   $scope.checkForMessagesInt = 1240;
+   $scope.messageLoadInterval = 1540;
+   $scope.checkForMessagesInt = 1250;
    $scope.loaderVisible = true;
    $scope.editOrEnter = "Enter";
    $scope.editing = false;
@@ -179,7 +179,7 @@ app.controller("themeController",["$scope", "$http", "$location", "$sce", "userS
    
     $scope.getMessageCount = function()
     {
-        window.setTimeout(function(){$scope.parseMessageCount();}, 200);
+        window.setTimeout(function(){$scope.parseMessageCount();}, 100);
     };
     
     $scope.parseMessageCount = function()

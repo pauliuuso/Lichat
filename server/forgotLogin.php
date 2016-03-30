@@ -30,14 +30,15 @@ function generateNew()
     global $connection, $user, $userEmail;
     $password = uniqid();
     $encodedPassword = sha1($password);
-    $headers = "From: robot@lichat.com";
-    $message = "You requested your password to be reseted\r\nYour new password is " . $password . "\r\nHave a good time.";
-
     $sql = "UPDATE users SET password = '$encodedPassword' WHERE name = '$user' AND email = '$userEmail'";
     $statement = mysqli_prepare($connection, $sql);
+    
     if($statement->execute())
     {
-        mail($userEmail, "Lichat password reset", $message, $headers);
+        $subject = "Lichat password reset";
+        $headers = "From: robot@lichat.com\r\nMIME-Version: 1.0\r\nContent-type: text/html; charset=iso-8859-1\r\n";
+        $message = "<p>You requested your password to be reseted</p><p>Your username is <b>" . $user . "</b> and your new password is <b>" . $password . "</b></p><p>Have a good time.</p>";
+        mail($userEmail, $subject, $message, $headers);
         echo true;
     }
     else
