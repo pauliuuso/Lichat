@@ -10,4 +10,4 @@ Lihtweight, responsive and modern web chat system (AngularJS, Bootstrap3, HTML5,
 6. Install lichat, after it, delete install folder from your server.
 7. That's it, you can login with your administrative account.
 
-NOTE: if you are hosting lichat in a subdirectory, example "http://your_lichat_url/my_directory", then you have to change your base directory, open lichat index.html and change line 5 from "<base href='/'>" to <base href="'/my_directory'>"
+NOTE: if you are hosting lichat in a subdirectory, example "http://your_lichat_url/my_directory", then you have to change your base directory, open lichat index.html and change line 5 from "<base href='/'>" to "<base href='/my_directory'>"
