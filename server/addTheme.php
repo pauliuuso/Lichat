@@ -7,7 +7,9 @@ $response = "";
 
 $date = date("Y-m-d H:i:s");
 $title = $data -> title;
+$title = addslashes($title);
 $description = $data -> description;
+$description = addslashes($description);
 $picture = $data -> picture;
 $owner = $data -> owner;
 $token = $data -> token;

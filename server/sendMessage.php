@@ -8,6 +8,7 @@ $response = "";
 $date = date("Y-m-d H:i:s");
 $username = $data->username;
 $message = $data->message;
+$message = addslashes($message);
 $themeId = $data->theme;
 $token = $data->token;
 
