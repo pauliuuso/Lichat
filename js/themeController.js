@@ -108,17 +108,27 @@ app.controller("themeController",["$scope", "$http", "$location", "$sce", "userS
         });
     };
    
-    $scope.goToBottom = function(amount, time)
+    $scope.goToBottom = function(amount, time, newMessage)
     {
-        var bottomTimer = window.setTimeout(function(){$scope.goBottom(amount);}, time);
+        var bottomTimer = window.setTimeout(function(){$scope.goBottom(amount, newMessage);}, time);
     };
     
-    $scope.goBottom = function(amount)
+    $scope.goBottom = function(amount, newMessage)
     {
         var messageBoard = $(".message-board");
         if(!amount)
         {
-            messageBoard.scrollTop(messageBoard.prop("scrollHeight"));
+            if(newMessage)
+            {
+                if(messageBoard.scrollTop() + 445 >= messageBoard.prop("scrollHeight") - 40)
+                {
+                    messageBoard.scrollTop(messageBoard.prop("scrollHeight"));
+                }
+            }
+            else
+            {
+                messageBoard.scrollTop(messageBoard.prop("scrollHeight"));
+            }
         }
         else
         {
@@ -163,12 +173,13 @@ app.controller("themeController",["$scope", "$http", "$location", "$sce", "userS
                else
                {
                    $scope.allMessages = $.merge(newMessages, $scope.allMessages);
-                   $scope.goToBottom(100, 200);
+                   $scope.goToBottom(100, 200, false);
                }
             }
             else if(type === "new")
             {   
                 $scope.allMessages = $.merge($scope.allMessages, newMessages);
+                $scope.goToBottom(null, 250, true);
             }
         })
         .error(function(error)
@@ -235,7 +246,7 @@ app.controller("themeController",["$scope", "$http", "$location", "$sce", "userS
                 $scope.messageCount++; // This is needed display message that user sent faster for him
                 $scope.getNewMessages();
                 $scope.cancelEdit();
-                $scope.goToBottom(null, 250);
+                $scope.goToBottom(null, 250, false);
             })
             .error(function(error)
             {
@@ -302,7 +313,7 @@ app.controller("themeController",["$scope", "$http", "$location", "$sce", "userS
         if(messageBoard.prop("scrollHeight") === messageBoard.scrollTop() + 400 || $scope.firstLoad)
         {
             $scope.firstLoad = false;
-            $scope.goToBottom(null, 800);
+            $scope.goToBottom(null, 800, false);
         }
     });
     
