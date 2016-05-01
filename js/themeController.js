@@ -120,7 +120,7 @@ app.controller("themeController",["$scope", "$http", "$location", "$sce", "userS
         {
             if(newMessage)
             {
-                if(messageBoard.scrollTop() + 445 >= messageBoard.prop("scrollHeight") - 40)
+                if((parseInt(messageBoard.scrollTop()) + 445) >= (parseInt(messageBoard.prop("scrollHeight")) - 40))
                 {
                     messageBoard.scrollTop(messageBoard.prop("scrollHeight"));
                 }
