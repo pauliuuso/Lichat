@@ -17,16 +17,16 @@ Screenshots:
 <p align="center">
 
 <img src="http://teroute.com/jazauskas/img/liscreen2.jpg"/>
-(1 picture) Desktop main screen
+<p>(1 picture) Desktop main screen</p>
 
 <img src="http://teroute.com/jazauskas/img/liscreen5.jpg"/>
-(2 picture) Mobile login screen
+<p>(2 picture) Mobile login screen</p>
 
 <img src="http://teroute.com/jazauskas/img/liscreen6.jpg"/>
-(3 picture) Mobile theme screen
+<p>(3 picture) Mobile theme screen</p>
 
 <img src="http://teroute.com/jazauskas/img/liscreen7.jpg"/>
-(4 picture) Mobile user screen
+<p>(4 picture) Mobile user screen</p>
 
 </p>
 
