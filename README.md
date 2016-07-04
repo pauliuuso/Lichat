@@ -15,7 +15,10 @@ NOTE: if you are hosting lichat in a subdirectory, example "http://your_lichat_u
 Screenshots:
 
 <p align="center">
-test
+
+<img src="http://teroute.com/jazauskas/img/liscreen2.jpg"/>
+(1 picture) Desktop main screen
+
 </p>
 
 
