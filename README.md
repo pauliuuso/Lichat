@@ -19,6 +19,15 @@ Screenshots:
 <img src="http://teroute.com/jazauskas/img/liscreen2.jpg"/>
 (1 picture) Desktop main screen
 
+<img src="http://teroute.com/jazauskas/img/liscreen5.jpg"/>
+(2 picture) Mobile login screen
+
+<img src="http://teroute.com/jazauskas/img/liscreen6.jpg"/>
+(3 picture) Mobile theme screen
+
+<img src="http://teroute.com/jazauskas/img/liscreen7.jpg"/>
+(4 picture) Mobile user screen
+
 </p>
 
 
