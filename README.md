@@ -14,20 +14,17 @@ NOTE: if you are hosting lichat in a subdirectory, example "http://your_lichat_u
 
 Screenshots:
 
-<p align="center">
+<img style="text-align: center;" src="http://teroute.com/jazauskas/img/liscreen2.jpg"/>
+<p style="text-align: center;">(1 picture) Desktop main screen</p>
 
-<img src="http://teroute.com/jazauskas/img/liscreen2.jpg"/>
-<p>(1 picture) Desktop main screen</p>
+<img style="text-align: center;" src="http://teroute.com/jazauskas/img/liscreen5.jpg"/>
+<p style="text-align: center;">(2 picture) Mobile login screen</p>
 
-<img src="http://teroute.com/jazauskas/img/liscreen5.jpg"/>
-<p>(2 picture) Mobile login screen</p>
+<img style="text-align: center;" src="http://teroute.com/jazauskas/img/liscreen6.jpg"/>
+<p style="text-align: center;">(3 picture) Mobile theme screen</p>
 
-<img src="http://teroute.com/jazauskas/img/liscreen6.jpg"/>
-<p>(3 picture) Mobile theme screen</p>
+<img style="text-align: center;" src="http://teroute.com/jazauskas/img/liscreen7.jpg"/>
+<p style="text-align: center;">(4 picture) Mobile user screen</p>
 
-<img src="http://teroute.com/jazauskas/img/liscreen7.jpg"/>
-<p>(4 picture) Mobile user screen</p>
-
-</p>
 
 
