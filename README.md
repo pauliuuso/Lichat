@@ -15,14 +15,7 @@ NOTE: if you are hosting lichat in a subdirectory, example "http://your_lichat_u
 Screenshots:
 
 <p align="center">
-![Screenshot_1](http://teroute.com/jazauskas/img/liscreen2.jpg "Desktop screen")
-(1 picture) Desktop main screen
-
-![Screenshot_2](http://teroute.com/jazauskas/img/liscreen5.jpg "Mobile Login")
-
-![Screenshot_3](http://teroute.com/jazauskas/img/liscreen6.jpg "Mobile Screen")
-
-![Screenshot_4](http://teroute.com/jazauskas/img/liscreen7.jpg "Mobile Users")
+test
 </p>
 
 
