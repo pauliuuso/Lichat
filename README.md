@@ -11,3 +11,15 @@ Lihtweight, responsive and modern web chat system (AngularJS, Bootstrap3, HTML5,
 7. That's it, you can login with your administrative account.
 
 NOTE: if you are hosting lichat in a subdirectory, example "http://your_lichat_url/my_directory", then you have to change your base directory, open lichat index.html and change line 5 from "&#60;base href='/'&#62;" to "&#60;base href='/my_directory'&#62;"
+
+Screenshots:
+
+![Screenshot_1](http://teroute.com/jazauskas/img/liscreen2.jpg "Desktop screen")
+
+![Screenshot_2](http://teroute.com/jazauskas/img/liscreen5.jpg "Mobile Login")
+
+![Screenshot_3](http://teroute.com/jazauskas/img/liscreen6.jpg "Mobile Screen")
+
+![Screenshot_4](http://teroute.com/jazauskas/img/liscreen7.jpg "Mobile Users")
+
+
